@@ -1,0 +1,75 @@
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stadiuuum</title>
+</head>
+
+<body>
+<div class="wrapper">
+  <header class="header container-fluid">
+    <div class="row">
+      <div class="header-logo col-md-2">S</div>
+      {{> ideas}}
+      <div class="header-add col-md-2">+</div>
+    </div>
+  </header>
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="col-md-1 col-md-offset-1">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#">Tasks</a></li>
+          <li><a href="#">Messages</a></li>
+          <li><a href="#">Documents</a></li>
+        </ul>
+      </aside>
+      {{> tasks}}
+      <aside class="col-md-2"></aside>
+    </div>
+  </div>
+</div>
+</body>
+
+<template name="ideas">
+  {{#each idea}}
+    <section>
+      <div class="col-md-1 col-md-offset-2">
+        <h1>#{{number}}</h1>
+        <button type="button" class="btn btn-default">+1</button>
+      </div>
+      <div class="col-md-7">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+      </div>
+    </section>
+  {{/each}}
+</template>
+
+<template name="tasks">
+  {{#each task}}
+    <section>
+      <div class="col-md-1">
+        <h4>#{{number}}</h4>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-sm">LOE</button>
+          <button type="button" class="btn btn-default btn-sm">+1</button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <div class="clearfix">
+          <div class="media pull-left">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="http://placehold.it/36x36">
+            </a>
+            <div class="media-body">
+              <h5 class="media-heading">Andrew Liebchen</h5>
+              <small>Lorem ipsum</small>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary pull-right">Start</button>
+        </div>
+      </div>
+    </section>
+  {{/each}}
+</template>
