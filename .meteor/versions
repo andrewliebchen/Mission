@@ -39,7 +39,6 @@ reactive-dict@1.0.2
 reactive-var@1.0.1
 reload@1.1.0
 retry@1.0.0
-reywood:bootstrap3-sass@3.1.7
 routepolicy@1.0.1
 session@1.0.1
 spacebars-compiler@1.0.2
@@ -51,3 +50,4 @@ underscore@1.0.0
 url@1.0.0
 webapp-hashing@1.0.0
 webapp@1.1.1
+wolves:bourbon@0.7.0
