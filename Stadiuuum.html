@@ -3,16 +3,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stadiuuum</title>
 </head>
-<body>
-  {{> header}}
-  {{> chat}}
+
+<template name="application">
+  <body>
+    {{> header}}
+    {{> chat}}
+    {{> yield}}
+  </body>
+</template>
+
+<template name="loading">
+  Loading
+</template>
+
+<template name="home">
   {{> themes}}
-  <aside class="sidebar">
-    <div class="block">☺</div>
-    <div class="block">☺</div>
-    <div class="block">☺</div>
-  </aside>
-</body>
+  {{> sidebar}}
+</template>
 
 <template name="header">
   <header class="header">
@@ -22,10 +29,18 @@
   </header>
 </template>
 
+<template name="sidebar">
+  <aside class="sidebar">
+    <div class="block">☺</div>
+    <div class="block">☺</div>
+    <div class="block">☺</div>
+  </aside>
+</template>
+
 <template name="themes">
   <section class="themes container">
     {{#each theme}}
-      <div class="item mtr_show-tasks{{#if isActive}} is-active{{/if}}">
+      <div class="item mtr_show-theme{{#if isActive}} is-active{{/if}}">
         <button class="item__priority">
           <div class="item__priority__arrow">▲</div>
           <div class="item__priority__count">{{priorityCount}}</div>
@@ -33,6 +48,9 @@
         <h2 class="item__title">{{title}}</h2>
         <p class="item__description">{{description}}</p>
         <a class="item__toggle-chat mtr_toggle-chat">✏</a>
+        <div class="item__meta">
+          This • is • meta
+        </div>
       </div>
 
       {{#if showTasks}}
@@ -40,6 +58,10 @@
       {{/if}}
     {{/each}}
   </section>
+</template>
+
+<template name="theme">
+  Single theme
 </template>
 
 <template name="chat">

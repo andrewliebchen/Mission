@@ -115,11 +115,21 @@ button {
 
 }
 
-.item__description {
+.item__description,
+.item__meta {
   color: $gray;
 
   .item:hover & {
     color: inherit;
+  }
+}
+
+.item__meta {
+  font-size: 0.8em;
+  display: none;
+
+  .item:hover & {
+    display: block;
   }
 }
 
