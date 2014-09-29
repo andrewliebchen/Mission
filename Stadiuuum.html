@@ -17,15 +17,19 @@
 </template>
 
 <template name="home">
-  {{> themes}}
+  <section class="themes container">
+    {{> themes}}
+  </section>
   {{> sidebar}}
 </template>
 
 <template name="header">
   <header class="header">
     <div class="container">
-    Stadium / Project / Theme
-  </div>
+      <nav class="breadcrumbs">
+        <a href="/">Stadium</a>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -38,30 +42,35 @@
 </template>
 
 <template name="themes">
-  <section class="themes container">
-    {{#each theme}}
-      <div class="item mtr_show-theme{{#if isActive}} is-active{{/if}}">
-        <button class="item__priority">
-          <div class="item__priority__arrow">▲</div>
-          <div class="item__priority__count">{{priorityCount}}</div>
-        </button>
-        <h2 class="item__title">{{title}}</h2>
-        <p class="item__description">{{description}}</p>
-        <a class="item__toggle-chat mtr_toggle-chat">✏</a>
-        <div class="item__meta">
-          This • is • meta
-        </div>
-      </div>
-
-      {{#if showTasks}}
-        {{> tasks}}
-      {{/if}}
-    {{/each}}
-  </section>
+  {{#each theme}}
+    <div class="item mtr_show-theme{{#if isActive}} is-active{{/if}}">
+      {{> itemContent}}
+    </div>
+  {{/each}}
 </template>
 
 <template name="theme">
-  Single theme
+  <section class="single-theme">
+    <div class="container">
+      {{> themes}}
+    </div>
+  </section>
+  <section class="tasks container">
+    {{> tasks}}
+    {{> sidebar}}
+  </section>
+</template>
+
+<template name="itemContent">
+  <button class="item__priority">
+    <div class="item__priority__arrow">▲</div>
+    <div class="item__priority__count">{{priorityCount}}</div>
+  </button>
+  <div class="item__body">
+    <h2 class="item__title">{{title}}</h2>
+    <p class="item__description">{{description}}</p>
+  </div>
+  <a class="item__toggle-chat mtr_toggle-chat">✏</a>
 </template>
 
 <template name="chat">
@@ -76,13 +85,7 @@
   <section class="tasks">
     {{#each task}}
       <div class="item">
-        <button class="item__priority">
-          <div class="item__priority__arrow">▲</div>
-          <div class="item__priority__count">{{priorityCount}}</div>
-        </button>
-        <h2 class="item__title">{{title}}</h2>
-        <p class="item__description">{{description}}</p>
-        <a class="item__toggle-chat mtr_toggle-chat">✏</a>
+        {{> itemContent}}
       </div>
     {{/each}}
   </section>

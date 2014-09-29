@@ -9,6 +9,13 @@ $gray-lighter: #F0F0F0;
 $fontFamilyBase: "proxima nova", $helvetica;
 $fontSizeBase: 16px;
 
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
 * {
   @include box-sizing(border-box);
 
@@ -111,25 +118,19 @@ button {
   height: 4em;
 }
 
+.item__body {
+  overflow: auto;
+}
+
 .item__title {
 
 }
 
-.item__description,
-.item__meta {
+.item__description {
   color: $gray;
 
   .item:hover & {
     color: inherit;
-  }
-}
-
-.item__meta {
-  font-size: 0.8em;
-  display: none;
-
-  .item:hover & {
-    display: block;
   }
 }
 
@@ -147,12 +148,6 @@ button {
 
   .item:hover & {
     display: inline-block;
-  }
-}
-
-.tasks {
-  .item {
-    padding-left: 3em;
   }
 }
 
@@ -186,5 +181,29 @@ button {
   &:focus {
     background-color: white;
     box-shadow: inset 0 0 0 1px $color, 0 0 0 3px rgba($color, 0.2);
+  }
+}
+
+.single-theme {
+  @include position(fixed, 3em null null 0);
+  border-bottom: 1px solid $gray-light;
+  width: 100%;
+  background-color: rgba(white, 0.9);
+  z-index: 9999;
+
+  .item__priority {
+    margin-right: 2em;
+  }
+}
+
+.tasks {
+  margin-top: 9em;
+
+  .sidebar {
+    top: 10em;
+  }
+
+  .item {
+    padding-left: 4em;
   }
 }
