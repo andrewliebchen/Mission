@@ -5,12 +5,12 @@
 </head>
 
 <template name="application">
-  <body>
+  <div class="wrapper{{#if showChat}} show-chat{{/if}}">
     {{> header}}
     {{> chat}}
     {{> yield}}
     <button class="add-task">+</button>
-  </body>
+  </div>
 </template>
 
 <template name="loading">
@@ -53,12 +53,14 @@
 </template>
 
 <template name="theme">
-  <section class="single-theme">
-    <div class="container">
-      {{> themes}}
-    </div>
-  </section>
-  {{> team}}
+  <header class="theme-header">
+    <section class="theme">
+      <div class="container">
+        {{> themes}}
+      </div>
+    </section>
+    {{> team}}
+  </header>
   <section class="tasks container">
     {{> tasks}}
   </section>

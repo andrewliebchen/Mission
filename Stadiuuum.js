@@ -5,6 +5,10 @@ if (Meteor.isClient) {
   Session.set('showChat', null);
   Session.set('activeItem', null);
 
+  Template.application.showChat = function() {
+    return !Session.equals('showChat', null);
+  };
+
   Template.themes.theme = function() {
     return Themes.find({});
   };

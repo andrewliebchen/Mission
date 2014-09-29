@@ -68,19 +68,16 @@ button {
   max-width: 75%;
   margin: 0 auto;
   position: relative;
+
+  .show-chat & {
+    margin-left: 1em;
+  }
 }
 
 .team {
   margin-top: 3em;
   padding: 1em 0;
   border-bottom: 1px solid $gray-light;
-  background-color: rgba(white, 0.9);
-
-  .single-theme ~ & {
-    @include position(fixed, 9em 0 null 0);
-    z-index: 9998;
-    margin-top: 0;
-  }
 }
 
 .block {
@@ -98,17 +95,13 @@ button {
   }
 }
 
-.themes {
-  // padding-left: 4em;
-}
-
 .header {
   @include position(fixed, 0 0 null 0);
   background-color: rgba(white, 0.9);
   border-bottom: 1px solid $gray-light;
   height: 3em;
   line-height: 3em;
-  z-index: 9999;
+  z-index: 100;
 }
 
 .item {
@@ -168,10 +161,11 @@ button {
   overflow-x: hidden;
   overflow-y: auto;
   padding: 1em;
+  z-index: 200;
 
-  ~ .themes {
-    margin-right: 25%;
-    padding-left: 5em;
+  ~ .content {
+    padding-left: 1em;
+    @include transform(translateX(-12%));
   }
 }
 
@@ -189,12 +183,18 @@ button {
   }
 }
 
-.single-theme {
-  @include position(fixed, 3em null null 0);
-  border-bottom: 1px solid $gray-light;
-  width: 100%;
-  background-color: rgba(white, 0.9);
-  z-index: 9999;
+.theme-header {
+  @include position(fixed, 3em 0 null 0);
+  background-color: rgba(white, 0.95);
+  z-index: 100;
+
+  .theme {
+    border-bottom: 1px solid $gray-light;
+  }
+
+  .team {
+    margin-top: 0;
+  }
 }
 
 .add-task {
