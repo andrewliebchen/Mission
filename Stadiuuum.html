@@ -9,6 +9,7 @@
     {{> header}}
     {{> chat}}
     {{> yield}}
+    <button class="add-task">+</button>
   </body>
 </template>
 
@@ -17,28 +18,30 @@
 </template>
 
 <template name="home">
+  {{> team}}
   <section class="themes container">
     {{> themes}}
   </section>
-  {{> sidebar}}
 </template>
 
 <template name="header">
   <header class="header">
     <div class="container">
       <nav class="breadcrumbs">
-        <a href="/">Stadium</a>
+        <a href="/"><strong>STADIUM</strong></a>
       </nav>
     </div>
   </header>
 </template>
 
-<template name="sidebar">
-  <aside class="sidebar">
-    <div class="block">☺</div>
-    <div class="block">☺</div>
-    <div class="block">☺</div>
-  </aside>
+<template name="team">
+  <section class="team">
+    <div class="container">
+      <div class="block">☺</div>
+      <div class="block">☺</div>
+      <div class="block">☺</div>
+    </div>
+  </section>
 </template>
 
 <template name="themes">
@@ -55,9 +58,9 @@
       {{> themes}}
     </div>
   </section>
+  {{> team}}
   <section class="tasks container">
     {{> tasks}}
-    {{> sidebar}}
   </section>
 </template>
 

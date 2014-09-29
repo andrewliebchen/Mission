@@ -67,10 +67,20 @@ button {
 .container {
   max-width: 75%;
   margin: 0 auto;
+  position: relative;
 }
 
-.sidebar {
-  @include position(fixed, 4em null 0 12.5%);
+.team {
+  margin-top: 3em;
+  padding: 1em 0;
+  border-bottom: 1px solid $gray-light;
+  background-color: rgba(white, 0.9);
+
+  .single-theme ~ & {
+    @include position(fixed, 9em 0 null 0);
+    z-index: 9998;
+    margin-top: 0;
+  }
 }
 
 .block {
@@ -79,8 +89,9 @@ button {
   color: $gray;
   cursor: pointer;
   line-height: 3em;
-  margin-bottom: 0.5em;
+  margin-right: 0.5em;
   text-align: center;
+  display: inline-block;
 
   &:hover {
     color: $color;
@@ -88,8 +99,7 @@ button {
 }
 
 .themes {
-  margin-top: 3em;
-  padding-left: 4em;
+  // padding-left: 4em;
 }
 
 .header {
@@ -163,11 +173,6 @@ button {
     margin-right: 25%;
     padding-left: 5em;
   }
-
-  ~ .sidebar {
-    left: 1em;
-    margin: 0;
-  }
 }
 
 .chat__input {
@@ -190,20 +195,14 @@ button {
   width: 100%;
   background-color: rgba(white, 0.9);
   z-index: 9999;
+}
 
-  .item__priority {
-    margin-right: 2em;
-  }
+.add-task {
+  @include position(fixed, null 1em 1em null);
+  @include size(3em);
+  background-color: white;
 }
 
 .tasks {
-  margin-top: 9em;
-
-  .sidebar {
-    top: 10em;
-  }
-
-  .item {
-    padding-left: 4em;
-  }
+  margin-top: 14em;
 }
