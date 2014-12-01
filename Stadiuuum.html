@@ -40,6 +40,7 @@
       <div class="block">☺</div>
       <div class="block">☺</div>
       <div class="block">☺</div>
+      <div class="search">Search</div>
     </div>
   </section>
 </template>
@@ -75,7 +76,6 @@
     <h2 class="item__title">{{title}}</h2>
     <p class="item__description">{{description}}</p>
   </div>
-  <a class="item__toggle-chat mtr_toggle-chat">✏</a>
 </template>
 
 <template name="chat">
@@ -89,7 +89,7 @@
 <template name="tasks">
   <section class="tasks">
     {{#each task}}
-      <div class="item">
+      <div class="item task">
         {{> itemContent}}
       </div>
     {{/each}}
