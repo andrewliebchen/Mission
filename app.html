@@ -34,7 +34,7 @@
 <template name="themes">
   {{#each theme}}
     <div class="item mtr_show-theme{{#if isActive}} is-active{{/if}}">
-      {{> itemContent}}
+      {{> themeContent}}
     </div>
   {{/each}}
 </template>
@@ -51,6 +51,7 @@
       </div>
       <div class="pagination">
         <a class="pagination__link prev">❮</a>
+        <a class="pagination__link menu">☰</a>
         <a class="pagination__link next">❯</a>
       </div>
     </section>
@@ -61,11 +62,11 @@
   </section>
 </template>
 
-<template name="itemContent">
-  <button class="item__priority">
+<template name="themeContent">
+  <!-- <button class="item__priority">
     <div class="item__priority__arrow">▲</div>
     <div class="item__priority__count">{{priorityCount}}</div>
-  </button>
+  </button> -->
   <div class="item__body">
     <h2 class="item__title">{{title}}</h2>
     <p class="item__description">{{description}}</p>
@@ -76,24 +77,63 @@
   <header class="toolbar">
     <div class="container">
       <div class="toolbar__section">
-        <div class="block">AL</div>
-        <div class="block">CD</div>
-        <div class="block">PD</div>
-        <div class="block">TD</div>
-        <a class="block">+</a>
+        <div class="block medium">AL</div>
+        <div class="block medium">CD</div>
+        <div class="block medium">PD</div>
+        <div class="block medium">TD</div>
+        <a class="block medium">+</a>
       </div>
       <div class="toolbar__section search">Search</div>
-      <a class="block add-item">+</a>
+      <a class="block large add-item">+</a>
     </div>
   </header>
 </template>
 
 <template name="tasks">
-  <section class="tasks">
-    {{#each task}}
-      <div class="item task">
-        {{> itemContent}}
+  <div class="columns">
+    <div class="column">
+      <header class="column__header">
+        <h4>To do</h4>
+      </header>
+      <div class="column__body">
+        {{#each task}}
+          <div class="task">
+            <div class="task__body">
+              <p class="task__title">{{title}}</p>
+            </div>
+            <footer class="task__footer">
+              <div class="task__container">
+                <div class="block small"><span>AL</span></div>
+              </div>
+              <a class="task__action">Start</a>
+            </footer>
+          </div>
+        {{/each}}
       </div>
-    {{/each}}
-  </section>
+    </div>
+    <div class="column">
+      <header class="column__header">
+        <h4>Doing</h4>
+      </header>
+      <div class="column__body">
+        <strong class="null">No items</strong>
+      </div>
+    </div>
+    <div class="column">
+      <header class="column__header">
+        <h4>Done</h4>
+      </header>
+      <div class="column__body">
+        <strong class="null">No items</strong>
+      </div>
+    </div>
+    <div class="column">
+      <header class="column__header">
+        <h4>Accepted</h4>
+      </header>
+      <div class="column__body">
+        <strong class="null">No items</strong>
+      </div>
+    </div>
+  </div>
 </template>
