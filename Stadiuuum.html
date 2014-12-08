@@ -7,9 +7,7 @@
 <template name="application">
   <div class="wrapper{{#if showChat}} show-chat{{/if}}">
     {{> header}}
-    {{> chat}}
     {{> yield}}
-    <button class="add-task">+</button>
   </div>
 </template>
 
@@ -18,7 +16,6 @@
 </template>
 
 <template name="home">
-  {{> team}}
   <section class="themes container">
     {{> themes}}
   </section>
@@ -32,17 +29,6 @@
       </nav>
     </div>
   </header>
-</template>
-
-<template name="team">
-  <section class="team">
-    <div class="container">
-      <div class="block">☺</div>
-      <div class="block">☺</div>
-      <div class="block">☺</div>
-      <div class="search">Search</div>
-    </div>
-  </section>
 </template>
 
 <template name="themes">
@@ -59,10 +45,14 @@
       <div class="container">
         {{> themes}}
       </div>
+      <div class="pagination">
+        <a class="pagination__link prev">❮</a>
+        <a class="pagination__link next">❯</a>
+      </div>
     </section>
-    {{> team}}
   </header>
-  <section class="tasks container">
+  <section class="tasks">
+    {{> toolbar}}
     {{> tasks}}
   </section>
 </template>
@@ -78,12 +68,19 @@
   </div>
 </template>
 
-<template name="chat">
-  {{#if showChat}}
-    <section class="chat">
-      <input type="text" class="chat__input">
-    </section>
-  {{/if}}
+<template name="toolbar">
+  <header class="toolbar">
+    <div class="container">
+      <div class="toolbar__section">
+        <div class="block">☺</div>
+        <div class="block">☺</div>
+        <div class="block">☺</div>
+        <a class="block">+</a>
+      </div>
+      <div class="toolbar__section search">Search</div>
+      <a class="block add-item">+</a>
+    </div>
+  </header>
 </template>
 
 <template name="tasks">

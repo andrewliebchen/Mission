@@ -1,57 +1,66 @@
-@import ".meteor/local/build/programs/server/assets/packages/wolves_bourbon/bourbon";
+@import ".meteor/local/build/programs/server/assets/packages/bstocks_bourbon/bourbon";
 
-$color: #0074D9; // Temp color
-$black: #222;
-$gray: #AAA;
-$gray-light: #DDDDDD;
-$gray-lighter: #F0F0F0;
+// VARIABLES
+$color-primary: #0074D9;
 
-$fontFamilyBase: "proxima nova", $helvetica;
-$fontSizeBase: 16px;
+$color-gray-1: #222;
+$color-gray-2: #aaa;
+$color-gray-3: #ddd;
+$color-gray-4: #f0f0f0;
+$color-gray-5: #f9f9f9;
 
+$font-family-base: $helvetica;
+$font-size-base: 16px;
+
+// HELPERS
 @mixin ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
   max-width: 100%;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+// RESET
 * {
-  @include box-sizing(border-box);
-
-  // Stupid reset
   @include appearance(none);
+  @include box-sizing(border-box);
   background-color: transparent;
   border: 0;
   list-style: none;
   margin: 0;
+  outline: none;
   padding: 0;
   text-decoration: none;
-  outline: none;
 }
 
+// BASE
 html,
 body {
-  color: $black;
-  font-family: $fontFamilyBase;
-  font-size: $fontSizeBase;
+  color: $color-gray-1;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
   line-height: 1.5;
 }
 
+html {
+  background-color: $color-gray-5;
+  min-height: 100%;
+}
+
 a {
-  color: $color;
+  color: $color-primary;
   cursor: pointer;
 }
 
 button {
-  border: 1px solid $color;
-  color: $color;
+  border: 1px solid $color-primary;
+  color: $color-primary;
   cursor: pointer;
   font-size: 1em;
   padding: 0.5em;
 
   &:hover {
-    background-color: $color;
+    background-color: $color-primary;
     color: white;
   }
 }
@@ -65,55 +74,22 @@ button {
 }
 
 .container {
-  max-width: 75%;
+  @include clearfix;
   margin: 0 auto;
+  max-width: 75%;
   position: relative;
-
-  .show-chat & {
-    margin-left: 1em;
-  }
 }
 
-.team {
-  margin-top: 3em;
-  padding: 1em 0;
-  border-bottom: 1px solid $gray-light;
-}
-
-.search {
-  width: 33.33%;
-  border-left: 1px solid $gray-light;
-  @include position(absolute, 0 0 0 null);
-  padding-left: 1em;
-  font-style: italic;
-  color: $gray;
-  line-height: 3em;
-}
-
-.block {
-  @include size(3em);
-  border: 1px solid;
-  color: $gray;
-  cursor: pointer;
-  line-height: 3em;
-  margin-right: 0.5em;
-  text-align: center;
-  display: inline-block;
-
-  &:hover {
-    color: $color;
-  }
-}
-
+// HEADER
 .header {
   @include position(fixed, 0 0 null 0);
   background-color: rgba(white, 0.9);
-  border-bottom: 1px solid $gray-light;
+  border-bottom: 1px solid $color-gray-4;
   height: 3em;
   line-height: 3em;
-  z-index: 100;
 }
 
+// ITEMS
 .item {
   @include clearfix;
   cursor: pointer;
@@ -121,91 +97,122 @@ button {
   position: relative;
 
   &:hover {
-    color: $color;
+    color: $color-primary;
   }
 }
 
 .item__priority {
   float: left;
-  margin-right: 1em;
   height: 4em;
+  margin-right: 1em;
 }
 
 .item__body {
   overflow: auto;
 }
 
-.item__title {
-
-}
-
 .item__description {
-  color: $gray;
+  color: $color-gray-2;
 
   .item:hover & {
     color: inherit;
   }
 }
 
-.chat {
-  @include size(25% 100%);
-  @include position(fixed, 3em 0 0 null);
-  background-color: $gray-lighter;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 1em;
-  z-index: 200;
-
-  ~ .content {
-    padding-left: 1em;
-    @include transform(translateX(-12%));
-  }
-}
-
-.chat__input {
-  @include position(absolute, null 1em 1em 1em);
-  background-color: $gray-lighter;
-  font-size: 1em;
-  height: 3em;
-  line-height: 1em;
-  padding: 1em;
-
-  &:focus {
-    background-color: white;
-    box-shadow: inset 0 0 0 1px $color, 0 0 0 3px rgba($color, 0.2);
-  }
-}
-
+// THEME HEADER
 .theme-header {
-  @include position(fixed, 3em 0 null 0);
-  background-color: rgba(white, 0.95);
-  z-index: 100;
-
-  .theme {
-    border-bottom: 1px solid $gray-light;
-  }
-
-  .team {
-    margin-top: 0;
-  }
-}
-
-.add-task {
-  @include position(fixed, null 1em 1em null);
-  @include size(3em);
   background-color: white;
+  border-bottom: 1px solid $color-gray-3;
+  margin-top: 3em;
+  position: relative;
 }
 
+.pagination__link {
+  $size: 3em;
+  @include position(absolute, 50% null null null);
+  @include size($size);
+  color: $color-gray-3;
+  line-height: $size;
+  margin-top: -($size / 2);
+  text-align: center;
+
+  &:hover {
+    background-color: $color-gray-4;
+    color: $color-primary;
+  }
+
+  &.prev {
+    left: 1em;
+  }
+
+  &.next {
+    right: 1em;
+  }
+}
+
+// TOOLBAR
+.toolbar {
+  @include clearfix;
+  background-color: $color-gray-4;
+  border-bottom: 1px solid $color-gray-3;
+}
+
+.toolbar__section {
+  float: left;
+  padding: 0.5em 0.5em 0.5em 0;
+
+  ~ .toolbar__section {
+    border-left: 1px solid $color-gray-3;
+    padding-left: 0.5em;
+  }
+}
+
+.block {
+  @include size(3em);
+  border: 1px solid;
+  color: $color-gray-2;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 3em - 0.25em;
+  margin-right: 0.25em;
+  text-align: center;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+a.block {
+  color: $color-primary;
+}
+
+.search {
+  color: $color-gray-2;
+  font-style: italic;
+  line-height: 3em;
+  width: 33.33%;
+}
+
+a.add-item {
+  @include position(absolute, -1.5em 0 null null);
+  @include size(3em);
+  background-color: $color-primary;
+  color: white;
+}
+
+
+// TASKS
 .tasks {
-  margin-top: 14em;
+
 }
 
 .task {
-  width: 31.33%;
-  margin: 1% 2% 1% 0;
+  background-color: white;
+  border: 1px solid $color-gray-3;
   float: left;
-  border: 1px solid $gray-light;
+  margin: 1% 2% 1% 0;
   padding: 1em;
+  width: 31.33%;
 
   .item__priority,
   .item__description {

@@ -6,7 +6,7 @@
 meteor-platform
 insecure
 fourseven:scss
-wolves:bourbon
 iron:router
 jquery
+bstocks:bourbon
 
