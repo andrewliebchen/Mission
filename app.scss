@@ -150,10 +150,32 @@ button {
   }
 }
 
+.tabs {
+  margin-bottom: -1px;
+}
+
+.tab {
+  display: inline-block;
+  line-height: 2em;
+  color: $color-gray-3;
+  font-weight: bold;
+  margin-right: 1em;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &.is-selected {
+    color: $color-primary;
+    border-color: $color-primary;
+  }
+}
+
 // TOOLBAR
 .toolbar {
   @include clearfix;
-  background-color: $color-gray-4;
+  // background-color: $color-gray-4;
   border-bottom: 1px solid $color-gray-3;
 }
 
@@ -176,6 +198,7 @@ button {
   line-height: 3em - 0.25em;
   margin-right: 0.25em;
   text-align: center;
+  font-weight: bold;
 
   &:hover {
     color: $color-primary;
