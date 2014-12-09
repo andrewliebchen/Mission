@@ -18,6 +18,7 @@
 <template name="home">
   <section class="themes container">
     {{> themes}}
+    <a class="block large add-item">+</a>
   </section>
 </template>
 
@@ -33,44 +34,52 @@
 
 <template name="themes">
   {{#each theme}}
-    <div class="item mtr_show-theme{{#if isActive}} is-active{{/if}}">
+    <div class="theme mtr_show-theme{{#if isActive}} is-active{{/if}}">
       {{> themeContent}}
+      {{> themeFooter}}
     </div>
   {{/each}}
 </template>
 
+<template name="themeContent">
+  <a class="theme__priority">
+    <span class="theme__priority__arrow">▲</span>
+    <span class="theme__priority__count">31</span>
+  </a>
+  <div class="theme__body">
+    <h2 class="theme__title">{{title}}</h2>
+    <p class="theme__description">{{description}}</p>
+  </div>
+</template>
+
+<template name="themeFooter">
+  <footer class="theme__footer">
+    <!-- <span class="theme__footer__item">Priority</span> -->
+    <span class="theme__footer__item">Tasks</span>
+    <span class="theme__footer__item">Notes</span>
+  </footer>
+</template>
+
 <template name="theme">
   <header class="theme-header">
-    <section class="theme">
-      <div class="container">
-        {{> themes}}
-        <nav class="tabs">
-          <a class="tab is-selected">Tasks</a>
-          <a class="tab">Notes</a>
-        </nav>
-      </div>
-      <div class="pagination">
-        <a class="pagination__link prev">❮</a>
-        <a class="pagination__link menu">☰</a>
-        <a class="pagination__link next">❯</a>
-      </div>
-    </section>
+    <div class="container">
+      {{> themes}}
+      <nav class="tabs">
+        <a class="tab is-selected">Tasks</a>
+        <a class="tab">Notes</a>
+      </nav>
+    </div>
+    <div class="pagination">
+      <a class="pagination__link prev">❮</a>
+      <a class="pagination__link menu">☰</a>
+      <a class="pagination__link next">❯</a>
+    </div>
+    <a class="block large add-item">+</a>
   </header>
   <section class="tasks">
     {{> toolbar}}
     {{> tasks}}
   </section>
-</template>
-
-<template name="themeContent">
-  <!-- <button class="item__priority">
-    <div class="item__priority__arrow">▲</div>
-    <div class="item__priority__count">{{priorityCount}}</div>
-  </button> -->
-  <div class="item__body">
-    <h2 class="item__title">{{title}}</h2>
-    <p class="item__description">{{description}}</p>
-  </div>
 </template>
 
 <template name="toolbar">
@@ -84,7 +93,6 @@
         <a class="block medium">+</a>
       </div>
       <div class="toolbar__section search">Search</div>
-      <a class="block large add-item">+</a>
     </div>
   </header>
 </template>

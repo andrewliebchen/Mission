@@ -84,6 +84,13 @@ button {
   position: relative;
 }
 
+a.block.add-item {
+  @include size(3em);
+  background-color: $color-primary;
+  color: white;
+  margin-right: 0;
+}
+
 // HEADER
 .header {
   background-color: white;
@@ -92,8 +99,14 @@ button {
   line-height: 3em;
 }
 
-// ITEMS
-.item {
+// THEMES
+.themes {
+  .add-item {
+    @include position(fixed, null 0.75em 0.75em null);
+  }
+}
+
+.theme {
   @include clearfix;
   cursor: pointer;
   padding: 1em 3em 1em 0;
@@ -104,21 +117,58 @@ button {
   }
 }
 
-.item__priority {
+.theme__priority {
   float: left;
-  height: 4em;
-  margin-right: 1em;
+  height: 3em;
+  width: 2em;
+  margin: 0.5em 1em 0 0;
+  display: block;
+  background-color: $color-gray-3;
+  border: 1px solid transparent;
+  text-align: center;
+
+  &:hover {
+    border-color: $color-primary;
+  }
 }
 
-.item__body {
+.theme__priority__arrow {
+  display: block;
+}
+
+.theme__priority__count {
+  font-size: 0.75em;
+}
+
+.theme__body {
   overflow: auto;
 }
 
-.item__description {
+.theme__description {
   color: $color-gray-2;
 
-  .item:hover & {
+  .theme:hover & {
     color: inherit;
+  }
+}
+
+.theme__footer {
+  padding: 0.25em 0 0 3em;
+
+  // Need a way to do this in the template
+  .theme-header & {
+    display: none;
+  }
+}
+
+.theme__footer__item {
+  font-weight: bold;
+  margin-right: 1em;
+  display: inline-block;
+  color: $color-gray-3;
+
+  &:hover {
+    color: $color-primary;
   }
 }
 
@@ -127,6 +177,10 @@ button {
   background-color: white;
   border-bottom: 1px solid $color-gray-3;
   position: relative;
+
+  .add-item {
+    @include position(absolute, null 0.75em -1.5em null);
+  }
 }
 
 .pagination__link {
@@ -233,14 +287,6 @@ a.block {
   line-height: 3em;
   width: 33.33%;
 }
-
-a.add-item {
-  @include position(absolute, -1.5em 0 null null);
-  @include size(3em);
-  background-color: $color-primary;
-  color: white;
-}
-
 
 // TASKS
 .columns {
