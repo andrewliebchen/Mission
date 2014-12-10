@@ -6,7 +6,7 @@ if (Meteor.isClient) {
 
   Template.themes.helpers({
     theme: function(){
-      return Themes.find({});
+      return Themes.find({}, {sort:{priorityCount: -1}});
     },
 
     isActive: function() {
@@ -21,15 +21,14 @@ if (Meteor.isClient) {
   });
 
   Template.themes.events({
-    'click .mtr_toggle-chat': function(event) {
-      event.preventDefault();
-      Session.set('showChat', this._id);
-      Session.set('activeItem', this._id);
-    },
-
     'click .mtr_show-theme': function(event) {
       event.preventDefault();
       Router.go('theme', {_id: this._id});
+    },
+
+    'click .mtr_upvote': function(event) {
+      event.stopPropagation();
+      Meteor.call('upVote', this._id);
     }
   });
 }
@@ -45,5 +44,11 @@ if (Meteor.isServer) {
 
   Meteor.publish('tasks', function() {
     return Tasks.find({});
+  });
+
+  Meteor.methods({
+    upVote: function(themeId) {
+      Themes.update(themeId, {$inc: {priorityCount: 1}});
+    }
   });
 }

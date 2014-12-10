@@ -141,7 +141,7 @@ a.block.add-item {
 }
 
 .theme__priority {
-  // background-color: $color-gray-3;
+  @include user-select(none);
   border: 1px solid;
   color: $color-gray-2;
   display: block;

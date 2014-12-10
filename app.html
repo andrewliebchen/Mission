@@ -27,7 +27,7 @@
     <div class="container">
       <nav class="nav">
         <a href="/" class="brand"><strong>MISSION</strong></a>
-        <a>Themes</a>
+        <a href="/">Themes</a>
         <a>Tasks</a>
         <a>Teams</a>
       </nav>
@@ -38,22 +38,24 @@
 
 <template name="themes">
   {{#each theme}}
-    <div class="theme mtr_show-theme{{#if isActive}} is-active{{/if}}">
+    <div class="theme{{#if isActive}} is-active{{/if}}">
       {{> themeContent}}
-      {{> tasksThumb}}
     </div>
   {{/each}}
 </template>
 
 <template name="themeContent">
-  <a class="theme__priority">
+  <a class="theme__priority mtr_upvote">
     <span class="theme__priority__arrow">▲</span>
-    <span class="theme__priority__count">31</span>
+    <span class="theme__priority__count">{{priorityCount}}</span>
   </a>
-  <div class="theme__body">
-    <h2 class="theme__title">{{title}}</h2>
-    <p class="theme__description">{{description}}</p>
-  </div>
+  <span class="mtr_show-theme">
+    <div class="theme__body">
+      <h2 class="theme__title">{{title}}</h2>
+      <p class="theme__description">{{description}}</p>
+    </div>
+    {{> tasksThumb}}
+  </span>
 </template>
 
 <template name="tasksThumb">
@@ -76,7 +78,7 @@
     </div>
     <div class="pagination">
       <a class="pagination__link prev">❮</a>
-      <a class="pagination__link menu">☰</a>
+      <a href="/" class="pagination__link menu">☰</a>
       <a class="pagination__link next">❯</a>
     </div>
     <a class="block large add-item">+</a>
