@@ -85,17 +85,17 @@ button {
 }
 
 .brand {
+  color: $color-primary !important;
   font-weight: bold;
   text-transform: uppercase;
-  color: $color-primary !important;
 }
 
 a.block.add-item {
+  @include position(fixed, null 0.75em 0.75em null);
   @include size(3em);
   background-color: $color-primary;
   color: white;
   margin-right: 0;
-  @include position(fixed, null 0.75em 0.75em null);
 }
 
 // HEADER
@@ -140,14 +140,14 @@ a.block.add-item {
 }
 
 .theme__priority {
-  float: left;
-  height: 3em;
-  width: 2em;
-  margin: 0.5em 1em 0 0;
-  display: block;
   background-color: $color-gray-3;
   border: 1px solid transparent;
+  display: block;
+  float: left;
+  height: 3em;
+  margin: 0.5em 1em 0 0;
   text-align: center;
+  width: 2em;
 
   &:hover {
     border-color: $color-primary;
@@ -163,8 +163,8 @@ a.block.add-item {
 }
 
 .theme__body {
-  overflow: auto;
   float: left;
+  overflow: auto;
 }
 
 .theme__description {
@@ -180,16 +180,16 @@ a.block.add-item {
 }
 
 .task-thumb__column {
-  display: inline-block;
   background-color: $color-gray-4;
-  width: 1em;
-  text-align: center;
   color: $color-gray-3;
+  display: inline-block;
   font-weight: bold;
+  text-align: center;
+  width: 1em;
 
   .theme:hover & {
-    color: $color-primary;
     background-color: $color-gray-3;
+    color: $color-primary;
   }
 }
 
@@ -232,12 +232,12 @@ a.block.add-item {
 }
 
 .tab {
-  display: inline-block;
-  line-height: 2em;
-  color: $color-gray-2;
-  font-weight: bold;
-  margin-right: 1em;
   border-bottom: 1px solid transparent;
+  color: $color-gray-2;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 2em;
+  margin-right: 1em;
 
   &:hover {
     color: $color-primary;
@@ -257,14 +257,14 @@ a.block.add-item {
 }
 
 .boards-toggle {
-  padding-right: 1em;
   font-weight: bold;
+  padding-right: 1em;
 }
 
 .toolbar__section {
   float: left;
-  padding: 0.45em 0.5em 0.5em 0;
   height: 4em;
+  padding: 0.45em 0.5em 0.5em 0;
 
   ~ .toolbar__section {
     border-left: 2px solid $color-gray-4;
@@ -274,15 +274,15 @@ a.block.add-item {
 
 .block {
   $size: 3em;
-  height: $size;
-  min-width: $size;
-  line-height: $size - 0.25em;
   border: 1px solid;
   color: $color-gray-2;
   cursor: pointer;
   display: inline-block;
-  text-align: center;
   font-weight: bold;
+  height: $size;
+  line-height: $size - 0.25em;
+  min-width: $size;
+  text-align: center;
 
   &:hover {
     color: $color-primary;
@@ -312,8 +312,8 @@ a.block {
 .search {
   color: $color-gray-2;
   font-style: italic;
-  width: 33.33%;
   padding-left: 0.5em;
+  width: 33.33%;
 }
 
 // TASKS
@@ -324,8 +324,8 @@ a.block {
 
 .column {
   float: left;
-  width: 25%;
   padding: 0.5em;
+  width: 25%;
 }
 
 .column__header {
@@ -335,14 +335,14 @@ a.block {
 
 .column__body {
   @include clearfix;
+  background-color: $color-gray-4;
   border: 1px solid $color-gray-3;
   padding: 0.25em;
-  background-color: $color-gray-4;
 
   .null {
-    text-align: center;
-    padding: 1em 0;
     display: block;
+    padding: 1em 0;
+    text-align: center;
   }
 }
 
@@ -375,15 +375,15 @@ a.block {
 }
 
 .task__action {
-  padding: 0 1em;
-  font-weight: bold;
   border-left: 1px solid $color-gray-4;
   float: right;
+  font-weight: bold;
   line-height: 2.5em;
+  padding: 0 1em;
 
   &:hover {
     background-color: $color-primary;
-    color: white;
     border-color: $color-primary;
+    color: white;
   }
 }
