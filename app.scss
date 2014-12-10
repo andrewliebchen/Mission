@@ -5,7 +5,7 @@ $color-primary: #0074D9;
 
 $color-gray-1: #222;
 $color-gray-2: #aaa;
-$color-gray-3: #ddd;
+$color-gray-3: #ccc;
 $color-gray-4: #f0f0f0;
 $color-gray-5: #f9f9f9;
 
@@ -84,11 +84,18 @@ button {
   position: relative;
 }
 
+.brand {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $color-primary !important;
+}
+
 a.block.add-item {
   @include size(3em);
   background-color: $color-primary;
   color: white;
   margin-right: 0;
+  @include position(fixed, null 0.75em 0.75em null);
 }
 
 // HEADER
@@ -97,19 +104,34 @@ a.block.add-item {
   border-bottom: 1px solid $color-gray-4;
   height: 3em;
   line-height: 3em;
-}
 
-// THEMES
-.themes {
-  .add-item {
-    @include position(fixed, null 0.75em 0.75em null);
+  a {
+    color: $color-gray-3;
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }
 
+.nav {
+  float: left;
+
+  a {
+    margin-right: 1em;
+  }
+}
+
+.user {
+  float: right;
+  font-weight: bold;
+}
+
+// THEMES
 .theme {
   @include clearfix;
   cursor: pointer;
-  padding: 1em 3em 1em 0;
+  padding: 1em 0 1em;
   position: relative;
 
   &:hover {
@@ -142,6 +164,7 @@ a.block.add-item {
 
 .theme__body {
   overflow: auto;
+  float: left;
 }
 
 .theme__description {
@@ -152,23 +175,21 @@ a.block.add-item {
   }
 }
 
-.theme__footer {
-  padding: 0.25em 0 0 3em;
-
-  // Need a way to do this in the template
-  .theme-header & {
-    display: none;
-  }
+.task-thumb {
+  float: right;
 }
 
-.theme__footer__item {
-  font-weight: bold;
-  margin-right: 1em;
+.task-thumb__column {
   display: inline-block;
+  background-color: $color-gray-4;
+  width: 1em;
+  text-align: center;
   color: $color-gray-3;
+  font-weight: bold;
 
-  &:hover {
+  .theme:hover & {
     color: $color-primary;
+    background-color: $color-gray-3;
   }
 }
 
@@ -177,10 +198,6 @@ a.block.add-item {
   background-color: white;
   border-bottom: 1px solid $color-gray-3;
   position: relative;
-
-  .add-item {
-    @include position(absolute, null 0.75em -1.5em null);
-  }
 }
 
 .pagination__link {
@@ -235,28 +252,35 @@ a.block.add-item {
 // TOOLBAR
 .toolbar {
   @include clearfix;
-  // background-color: $color-gray-4;
-  border-bottom: 1px solid $color-gray-3;
+  border-bottom: 2px solid $color-gray-4;
+  line-height: 3em;
+}
+
+.boards-toggle {
+  padding-right: 1em;
+  font-weight: bold;
 }
 
 .toolbar__section {
   float: left;
-  padding: 0.5em 0.5em 0.5em 0;
+  padding: 0.45em 0.5em 0.5em 0;
+  height: 4em;
 
   ~ .toolbar__section {
-    border-left: 1px solid $color-gray-3;
+    border-left: 2px solid $color-gray-4;
     padding-left: 0.5em;
   }
 }
 
 .block {
-  @include size(3em);
-  line-height: 3em - 0.25em;
+  $size: 3em;
+  height: $size;
+  min-width: $size;
+  line-height: $size - 0.25em;
   border: 1px solid;
   color: $color-gray-2;
   cursor: pointer;
   display: inline-block;
-  margin-right: 0.25em;
   text-align: center;
   font-weight: bold;
 
@@ -275,6 +299,10 @@ a.block.add-item {
   &.large {
     font-size: 1.25em;
   }
+
+  ~ .block {
+    margin-left: 0.25em;
+  }
 }
 
 a.block {
@@ -284,8 +312,8 @@ a.block {
 .search {
   color: $color-gray-2;
   font-style: italic;
-  line-height: 3em;
   width: 33.33%;
+  padding-left: 0.5em;
 }
 
 // TASKS

@@ -25,9 +25,13 @@
 <template name="header">
   <header class="header">
     <div class="container">
-      <nav class="breadcrumbs">
-        <a href="/"><strong>MISSION</strong></a>
+      <nav class="nav">
+        <a href="/" class="brand"><strong>MISSION</strong></a>
+        <a>Themes</a>
+        <a>Tasks</a>
+        <a>Teams</a>
       </nav>
+      <a class="user">Andrew Liebchen</a>
     </div>
   </header>
 </template>
@@ -36,7 +40,7 @@
   {{#each theme}}
     <div class="theme mtr_show-theme{{#if isActive}} is-active{{/if}}">
       {{> themeContent}}
-      {{> themeFooter}}
+      {{> tasksThumb}}
     </div>
   {{/each}}
 </template>
@@ -52,12 +56,13 @@
   </div>
 </template>
 
-<template name="themeFooter">
-  <footer class="theme__footer">
-    <!-- <span class="theme__footer__item">Priority</span> -->
-    <span class="theme__footer__item">Tasks</span>
-    <span class="theme__footer__item">Notes</span>
-  </footer>
+<template name="tasksThumb">
+  <div class="task-thumb">
+    <div class="task-thumb__column" style="height:40px;">4</div>
+    <div class="task-thumb__column" style="height:50px;">5</div>
+    <div class="task-thumb__column" style="height:30px;">3</div>
+    <div class="task-thumb__column" style="height:10px;">1</div>
+  </div>
 </template>
 
 <template name="theme">
@@ -86,13 +91,18 @@
   <header class="toolbar">
     <div class="container">
       <div class="toolbar__section">
+        <a class="boards-toggle">⧉ Current</a>
+      </div>
+      <div class="toolbar__section">
         <div class="block medium">AL</div>
         <div class="block medium">CD</div>
         <div class="block medium">PD</div>
         <div class="block medium">TD</div>
         <a class="block medium">+</a>
       </div>
-      <div class="toolbar__section search">Search</div>
+      <div class="toolbar__section">
+        <div class="search">Search</div>
+      </div>
     </div>
   </header>
 </template>
