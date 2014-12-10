@@ -117,9 +117,12 @@
       </header>
       <div class="column__body">
         {{#each task}}
-          <div class="task">
+          <div class="task task_{{status}}">
             <div class="task__body">
-              <p class="task__title">{{title}}</p>
+              <div class="task__status-bar"></div>
+              <p class="task__title">
+                <strong>{{number}}</strong> {{title}}
+              </p>
             </div>
             <footer class="task__footer">
               <div class="task__container">
