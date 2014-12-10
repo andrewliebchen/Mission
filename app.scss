@@ -94,6 +94,7 @@ a.block.add-item {
   @include position(fixed, null 0.75em 0.75em null);
   @include size(3em);
   background-color: $color-primary;
+  border: 0;
   color: white;
   margin-right: 0;
 }
@@ -140,8 +141,9 @@ a.block.add-item {
 }
 
 .theme__priority {
-  background-color: $color-gray-3;
-  border: 1px solid transparent;
+  // background-color: $color-gray-3;
+  border: 1px solid;
+  color: $color-gray-2;
   display: block;
   float: left;
   height: 3em;
@@ -150,20 +152,25 @@ a.block.add-item {
   width: 2em;
 
   &:hover {
-    border-color: $color-primary;
+    color: $color-primary;
   }
 }
 
 .theme__priority__arrow {
   display: block;
+  position: relative;
+  top: 2px;
 }
 
 .theme__priority__count {
   font-size: 0.75em;
+  position: relative;
+  top: -4px;
 }
 
 .theme__body {
   float: left;
+  max-width: 80%;
   overflow: auto;
 }
 
