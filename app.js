@@ -16,19 +16,19 @@ if (Meteor.isClient) {
 
   Template.tasks.helpers({
     todoTask: function() {
-      return Tasks.find({status: 'todo'}, {sort: {number: 1}});
+      return Tasks.find({status: 0}, {sort: {number: 1}});
     },
 
     doingTask: function() {
-      return Tasks.find({status: 'doing'}, {sort: {number: 1}});
+      return Tasks.find({status: 1}, {sort: {number: 1}});
     },
 
     doneTask: function() {
-      return Tasks.find({status: 'done'}, {sort: {number: 1}});
+      return Tasks.find({status: 2}, {sort: {number: 1}});
     },
 
     acceptedTask: function() {
-      return Tasks.find({status: 'accepted'}, {sort: {number: 1}});
+      return Tasks.find({status: 3}, {sort: {number: 1}});
     }
   });
 
@@ -41,6 +41,13 @@ if (Meteor.isClient) {
     'click .mtr_upvote': function(event) {
       event.stopPropagation();
       Meteor.call('upVote', this._id);
+    }
+  });
+
+  Template.task.events({
+    'click .mtr_status-increment': function(event) {
+      event.preventDefault();
+      Meteor.call('statusIncrement', this._id);
     }
   });
 }
@@ -61,6 +68,10 @@ if (Meteor.isServer) {
   Meteor.methods({
     upVote: function(themeId) {
       Themes.update(themeId, {$inc: {priorityCount: 1}});
+    },
+
+    statusIncrement: function(taskId) {
+      Tasks.update(taskId, {$inc: {status: 1}});
     }
   });
 }

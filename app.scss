@@ -32,19 +32,19 @@ $font-size-base: 16px;
 }
 
 @mixin status($property) {
-  .status_todo & {
+  .status_0 & {
     #{$property}: $color-status-todo;
   }
 
-  .status_doing & {
+  .status_1 & {
     #{$property}: $color-status-doing;
   }
 
-  .status_done & {
+  .status_2 & {
     #{$property}: $color-status-done;
   }
 
-  .status_accepted & {
+  .status_3 & {
     #{$property}: $color-status-accepted;
   }
 }

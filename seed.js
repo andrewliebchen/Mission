@@ -19,7 +19,7 @@ if (Meteor.isServer) {
       title:         'Add Themes so that I can keep track of them',
       description:   'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.',
       number:        2,
-      status:        'todo',
+      status:        0,
       parent:        themeId
     });
 
@@ -27,7 +27,7 @@ if (Meteor.isServer) {
       title:         'View a list of all my ideas',
       description:   'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.',
       number:        3,
-      status:        'todo',
+      status:        0,
       parent:        themeId
     });
 
@@ -35,7 +35,7 @@ if (Meteor.isServer) {
       title:         'Tag ideas so that I can organize them',
       description:   'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.',
       number:        4,
-      status:        'todo',
+      status:        0,
       parent:        themeId
     });
 
@@ -43,7 +43,7 @@ if (Meteor.isServer) {
       title:         'Add tasks to an idea so I know what needs needs to be done to complete an idea',
       description:   'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.',
       number:        5,
-      status:        'doing',
+      status:        1,
       parent:        themeId
     });
 
@@ -51,7 +51,7 @@ if (Meteor.isServer) {
       title:         'Start and stop working on task',
       description:   'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.',
       number:        6,
-      status:        'doing',
+      status:        1,
       parent:        themeId
     });
 
@@ -59,7 +59,7 @@ if (Meteor.isServer) {
       title:         'Vote on the priorityCount of tasks',
       description:   'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.',
       number:        7,
-      status:        'done',
+      status:        2,
       parent:        themeId
     });
 
@@ -67,7 +67,7 @@ if (Meteor.isServer) {
       title:         'Vote on the level of efforts of tasks',
       description:   'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.',
       number:        8,
-      status:        'accepted',
+      status:        3,
       parent:        themeId
     });
   }
