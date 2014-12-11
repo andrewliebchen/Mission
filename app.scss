@@ -297,6 +297,7 @@ a.block.add-item {
   @include clearfix;
   border-bottom: 2px solid $color-gray-4;
   line-height: 3em;
+  padding: 0 1em;
 }
 
 .boards-toggle {

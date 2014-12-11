@@ -32,9 +32,14 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.addItem.events({
+    'click .mtr_add-item': function() {
+      console.log(Session.get('addItemType'));
+    }
+  });
+
   Template.themes.events({
-    'click .mtr_show-theme': function(event) {
-      event.preventDefault();
+    'click .mtr_show-theme': function() {
       Router.go('theme', {_id: this._id});
     },
 
@@ -45,8 +50,7 @@ if (Meteor.isClient) {
   });
 
   Template.task.events({
-    'click .mtr_status-increment': function(event) {
-      event.preventDefault();
+    'click .mtr_status-increment': function() {
       Meteor.call('statusIncrement', event.currentTarget.id);
     }
   });

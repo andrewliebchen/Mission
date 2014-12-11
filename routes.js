@@ -10,6 +10,7 @@ Router.map(function() {
       return Meteor.subscribe('themes');
     },
     data: function() {
+      Session.set('addItemType', 'theme');
       return Themes.find({});
     }
   });
@@ -24,6 +25,7 @@ Router.map(function() {
     },
     data: function() {
       // Session.set('currentTheme', this.params._id);
+      Session.set('addItemType', 'task');
       return Themes.findOne(this.params._id);
     },
     onStop: function() {
