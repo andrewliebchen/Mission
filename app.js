@@ -15,8 +15,20 @@ if (Meteor.isClient) {
   });
 
   Template.tasks.helpers({
-    task: function() {
-      return Tasks.find({}, {sort: {number: 1}});
+    todoTask: function() {
+      return Tasks.find({status: 'todo'}, {sort: {number: 1}});
+    },
+
+    doingTask: function() {
+      return Tasks.find({status: 'doing'}, {sort: {number: 1}});
+    },
+
+    doneTask: function() {
+      return Tasks.find({status: 'done'}, {sort: {number: 1}});
+    },
+
+    acceptedTask: function() {
+      return Tasks.find({status: 'accepted'}, {sort: {number: 1}});
     }
   });
 
@@ -42,8 +54,8 @@ if (Meteor.isServer) {
     return id && Themes.find(id);
   });
 
-  Meteor.publish('tasks', function() {
-    return Tasks.find({});
+  Meteor.publish('tasks', function(id) {
+    return Tasks.find({parent: id});
   });
 
   Meteor.methods({

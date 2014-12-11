@@ -7,6 +7,11 @@ $color-gray-3: #ccc;
 $color-gray-4: #f0f0f0;
 $color-gray-5: #f9f9f9;
 
+$color-status-todo:     $color-primary;
+$color-status-doing:    #39b54a;
+$color-status-done:     #ff931e;
+$color-status-accepted: #a952a5;
+
 $font-family-base: "helvetica neue", helvetica, arial, sans-serif;
 $font-size-base: 16px;
 
@@ -23,6 +28,24 @@ $font-size-base: 16px;
     clear: both;
     content: "";
     display: table;
+  }
+}
+
+@mixin status($property) {
+  .status_todo & {
+    #{$property}: $color-status-todo;
+  }
+
+  .status_doing & {
+    #{$property}: $color-status-doing;
+  }
+
+  .status_done & {
+    #{$property}: $color-status-done;
+  }
+
+  .status_accepted & {
+    #{$property}: $color-status-accepted;
   }
 }
 
@@ -373,10 +396,6 @@ a.block {
   line-height: 1.3;
   position: relative;
 
-  &:hover {
-    border-color: $color-primary;
-  }
-
   ~ .task {
     margin-top: 0.25em;
   }
@@ -388,7 +407,8 @@ a.block {
   top: 0;
   left: 0;
   right: 0;
-  background-color: $color-primary; // set this programatically
+
+  @include status(background-color);
 }
 
 .task__body {
@@ -398,6 +418,7 @@ a.block {
 .task__footer {
   @include clearfix;
   border-top: 1px solid $color-gray-4;
+  height: 2.5em;
 }
 
 .task__container {
@@ -406,6 +427,7 @@ a.block {
 }
 
 .task__action {
+  @include status(color);
   border-left: 1px solid $color-gray-4;
   float: right;
   font-weight: bold;
@@ -413,8 +435,8 @@ a.block {
   padding: 0 1em;
 
   &:hover {
-    background-color: $color-primary;
-    border-color: $color-primary;
+    @include status(background-color);
     color: white;
+    border-color: transparent;
   }
 }
