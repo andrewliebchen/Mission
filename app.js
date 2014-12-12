@@ -4,6 +4,12 @@ Tasks  = new Meteor.Collection('tasks');
 if (Meteor.isClient) {
   Session.set('activeItem', null);
 
+  Template.newItem.helpers({
+    activeNewItem: function() {
+      return Session.get('activeNewItem');
+    }
+  });
+
   Template.themes.helpers({
     theme: function(){
       return Themes.find({}, {sort:{priorityCount: -1}});
@@ -34,7 +40,14 @@ if (Meteor.isClient) {
 
   Template.addItem.events({
     'click .mtr_add-item': function() {
+      Session.set('activeNewItem', true);
       console.log(Session.get('addItemType'));
+    }
+  });
+
+  Template.newItem.events({
+    'click .mtr_close-new-item': function() {
+      Session.set('activeNewItem', null);
     }
   });
 

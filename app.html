@@ -5,9 +5,10 @@
 </head>
 
 <template name="application">
-  <div class="wrapper{{#if showChat}} show-chat{{/if}}">
+  <div class="wrapper">
     {{> header}}
     {{> yield}}
+    {{> newItem}}
   </div>
 </template>
 
@@ -17,6 +18,24 @@
 
 <template name="addItem">
   <a class="block large add-item mtr_add-item">+</a>
+</template>
+
+<template name="newItem">
+  {{#if activeNewItem}}
+    <div class="new-item">
+      <header class="new-item__header">
+        <h3>Add a task</h3>
+        <div class="new-item__close mtr_close-new-item">X</div>
+      </header>
+      <form>
+        <label>Title</label>
+        <input type="text" placeholder="As an admin, I'd like to...">
+        <label>Description</label>
+        <textarea placeholder="More detail about the task"></textarea>
+        <input type="submit">
+      </form>
+    </div>
+  {{/if}}
 </template>
 
 <template name="home">
