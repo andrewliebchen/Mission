@@ -236,7 +236,7 @@ a.block.add-item {
 // THEME HEADER
 .theme-header {
   background-color: white;
-  border-bottom: 1px solid $color-gray-3;
+  border-bottom: 1px solid $color-gray-4;
   position: relative;
   padding-bottom: 1em;
 }
@@ -311,7 +311,7 @@ a.block.add-item {
   padding: 0.45em 0.5em 0.5em 0;
 
   ~ .toolbar__section {
-    border-left: 2px solid $color-gray-4;
+    // border-left: 2px solid $color-gray-4;
     padding-left: 0.5em;
   }
 }

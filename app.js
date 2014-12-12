@@ -50,7 +50,7 @@ if (Meteor.isClient) {
   });
 
   Template.task.events({
-    'click .mtr_status-increment': function() {
+    'click .mtr_status-increment': function(event) {
       Meteor.call('statusIncrement', event.currentTarget.id);
     }
   });
