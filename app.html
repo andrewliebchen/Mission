@@ -23,17 +23,20 @@
 <template name="newItem">
   {{#if activeNewItem}}
     <div class="new-item">
-      <header class="new-item__header">
-        <h3>Add a task</h3>
-        <div class="new-item__close mtr_close-new-item">X</div>
-      </header>
-      <form>
-        <label>Title</label>
-        <input type="text" placeholder="As an admin, I'd like to...">
-        <label>Description</label>
-        <textarea placeholder="More detail about the task"></textarea>
-        <input type="submit">
-      </form>
+      <nav class="new-item__tabs">
+        <a class="new-item__tab is-selected">Add theme</a>
+        <a class="new-item__tab">Add task</a>
+      </nav>
+      <div class="new-item__body">
+        <form>
+          <label>Title</label>
+          <input type="text" placeholder="As an admin, I'd like to...">
+          <label>Description</label>
+          <textarea placeholder="More detail about the task"></textarea>
+          <input type="submit">
+          <button class="mtr_close-new-item">Cancel</button>
+        </form>
+      </div>
     </div>
   {{/if}}
 </template>

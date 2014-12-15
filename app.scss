@@ -107,6 +107,37 @@ button {
   }
 }
 
+input,
+textarea {
+  display: block;
+  background-color: darken($color-primary, 10%);
+  line-height: 1.5em;
+  padding: 0.5em 1em;
+  width: 100%;
+  margin: 0.25em 0 1em;
+  font-size: 1em;
+  color: $color-gray-5;
+
+  &:focus {
+    background-color: $color-gray-5;
+    color: $color-gray-1;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: $color-primary;
+}
+
+::-moz-placeholder {
+  color: $color-primary;
+}
+
+label {
+  color: darken($color-primary, 20%);
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
 .null {
   color: $color-gray-3;
 }
@@ -460,7 +491,6 @@ a.block {
   width: 600px;
   background-color: $color-primary;
   color: $color-gray-5;
-  padding: 1em;
   font-weight: bold;
   position: fixed;
   right: 0.9em;
@@ -468,4 +498,30 @@ a.block {
   transform-origin: 100% 100%;
   -webkit-animation: new-item 0.2s ease-in; // Autoprefix
   z-index: 101;
+}
+
+.new-item__tabs {
+  @include clearfix;
+}
+
+.new-item__tab {
+  display: block;
+  float: left;
+  line-height: 3em;
+  width: 50%;
+  text-align: center;
+  background-color: darken($color-primary, 10%);
+
+  &:hover,
+  &.is-selected {
+    color: $color-gray-5;
+  }
+
+  &.is-selected {
+    background-color: transparent;
+  }
+}
+
+.new-item__body {
+  padding: 1em;
 }
