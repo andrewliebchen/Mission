@@ -24,17 +24,33 @@
   {{#if activeNewItem}}
     <div class="new-item">
       <nav class="new-item__tabs">
-        <a class="new-item__tab is-selected">Add theme</a>
-        <a class="new-item__tab">Add task</a>
+        <a class="new-item__tab mtr_new-item-tab_theme{{#if isTheme}} is-selected{{/if}}">Add theme</a>
+        <a class="new-item__tab mtr_new-item-tab_task{{#unless isTheme}} is-selected{{/unless}}">Add task</a>
       </nav>
       <div class="new-item__body">
-        <form>
-          <label>Title</label>
-          <input type="text" id="mtr_new-theme-title" placeholder="As an admin, I'd like to...">
-          <label>Description</label>
-          <textarea id="mtr_new-theme-description" placeholder="More detail about the task"></textarea>
-          <input type="submit" value="Add new item" class="mtr_add-theme">
-        </form>
+        {{#if isTheme}}
+          <form>
+            <label>Theme title</label>
+            <input type="text" id="mtr_new-theme-title" placeholder="Make it snappy...">
+            <label>Description</label>
+            <!-- Character count -->
+            <textarea id="mtr_new-theme-description" placeholder="More detail about the theme"></textarea>
+            <input type="submit" value="Add new item" class="mtr_add-theme">
+          </form>
+        {{else}}
+          <form>
+            <label>Task title</label>
+            <!-- Need a parent theme unless on single theme -->
+            <input type="text" id="mtr_new-task-title" placeholder="As an admin, I'd like to...">
+            <label>Description</label>
+            <textarea id="mtr_new-task-description" placeholder="More detail about the task"></textarea>
+            <div>
+              <label>Assign</label>
+              <select><option>Jean Picard</option></select>
+            </div>
+            <input type="submit" value="Add new item" class="mtr_add-task">
+          </form>
+        {{/if}}
       </div>
     </div>
     <div class="new-item__background mtr_close-new-item"></div>

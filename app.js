@@ -7,6 +7,12 @@ if (Meteor.isClient) {
   Template.newItem.helpers({
     activeNewItem: function() {
       return Session.get('activeNewItem');
+    },
+
+    isTheme: function() {
+      if(Session.get('newItemType') === 'theme') {
+        return true;
+      }
     }
   });
 
@@ -41,13 +47,20 @@ if (Meteor.isClient) {
   Template.addItem.events({
     'click .mtr_add-item': function() {
       Session.set('activeNewItem', true);
-      console.log(Session.get('addItemType'));
     }
   });
 
   Template.newItem.events({
     'click .mtr_close-new-item': function() {
       Session.set('activeNewItem', null);
+    },
+
+    'click .mtr_new-item-tab_theme': function() {
+      Session.set('newItemType', 'theme');
+    },
+
+    'click .mtr_new-item-tab_task': function() {
+      Session.set('newItemType', 'task');
     },
 
     'click .mtr_add-theme': function(event, template) {
