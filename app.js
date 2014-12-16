@@ -2,7 +2,7 @@ Themes = new Meteor.Collection('themes');
 Tasks  = new Meteor.Collection('tasks');
 
 if (Meteor.isClient) {
-  Session.set('activeItem', null);
+  Session.setDefault('activeItem', null);
 
   Template.newItem.helpers({
     activeNewItem: function() {
@@ -48,6 +48,26 @@ if (Meteor.isClient) {
   Template.newItem.events({
     'click .mtr_close-new-item': function() {
       Session.set('activeNewItem', null);
+    },
+
+    'click .mtr_add-theme': function(event, template) {
+      event.preventDefault();
+      var newThemeTitle = template.find('#mtr_new-theme-title');
+      var newThemeDescription = template.find('#mtr_new-theme-description');
+      var newTheme = {
+        title: newThemeTitle.value,
+        description: newThemeDescription.value
+      };
+
+      if(newThemeTitle.value && newThemeDescription.value) {
+        Meteor.call('newTheme', newTheme, function(error, id) {
+          error ? console.log(error) : null;
+        });
+
+        Session.set('activeNewItem', null);
+        newThemeTitle.value = '';
+        newThemeDescription.value = '';
+      }
     }
   });
 
@@ -89,6 +109,16 @@ if (Meteor.isServer) {
 
     statusIncrement: function(taskId) {
       Tasks.update(taskId, {$inc: {status: 1}});
+    },
+
+    newTheme: function(newTheme) {
+      var itemCount = (Themes.find({}).count()) + (Tasks.find({}).count());
+      Themes.insert({
+        title:         newTheme.title,
+        description:   newTheme.description,
+        number:        itemCount,
+        priorityCount: 0
+      });
     }
   });
 }

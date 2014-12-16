@@ -30,14 +30,14 @@
       <div class="new-item__body">
         <form>
           <label>Title</label>
-          <input type="text" placeholder="As an admin, I'd like to...">
+          <input type="text" id="mtr_new-theme-title" placeholder="As an admin, I'd like to...">
           <label>Description</label>
-          <textarea placeholder="More detail about the task"></textarea>
-          <input type="submit">
-          <button class="mtr_close-new-item">Cancel</button>
+          <textarea id="mtr_new-theme-description" placeholder="More detail about the task"></textarea>
+          <input type="submit" value="Add new item" class="mtr_add-theme">
         </form>
       </div>
     </div>
+    <div class="new-item__background mtr_close-new-item"></div>
   {{/if}}
 </template>
 
