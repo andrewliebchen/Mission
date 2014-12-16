@@ -1,7 +1,7 @@
 // VARIABLES
 $color-primary: #0074D9;
 
-$color-gray-1: #222;
+$color-gray-1: #444;
 $color-gray-2: #aaa;
 $color-gray-3: #ccc;
 $color-gray-4: #f0f0f0;
@@ -432,9 +432,9 @@ a.block {
 
 .column__body {
   @include clearfix;
-  background-color: $color-gray-4;
-  border: 1px solid $color-gray-3;
-  padding: 0.25em;
+  // background-color: $color-gray-4;
+  // border: 1px solid $color-gray-3;
+  // padding: 0.25em;
 
   .null {
     display: block;
@@ -446,12 +446,32 @@ a.block {
 // TASKS
 .task {
   background-color: white;
-  border: 1px solid $color-gray-3;
+  border: 1px solid $color-gray-4;
   line-height: 1.3;
   position: relative;
 
   ~ .task {
-    margin-top: 0.25em;
+    margin-top: 0.5em;
+  }
+
+  &.status_0 {
+    border-color: $color-status-todo;
+    color: $color-status-todo;
+  }
+
+  &.status_1 {
+    border-color: $color-status-doing;
+    color: $color-status-doing;
+  }
+
+  &.status_2 {
+    border-color: $color-status-done;
+    color: $color-status-done;
+  }
+
+  &.status_3 {
+    border-color: $color-status-accepted;
+    color: $color-status-accepted;
   }
 }
 
@@ -462,7 +482,7 @@ a.block {
   left: 0;
   right: 0;
 
-  @include status(background-color);
+  // @include status(background-color);
 }
 
 .task__body {
