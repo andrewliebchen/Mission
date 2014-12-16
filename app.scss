@@ -348,7 +348,7 @@ a.block.add-item {
 // TOOLBAR
 .toolbar {
   @include clearfix;
-  border-bottom: 2px solid $color-gray-4;
+  border-bottom: 1px solid $color-gray-4;
   line-height: 3em;
   padding: 0 1em;
 }
