@@ -1,0 +1,48 @@
+// NEW ITEM
+.new-item {
+  width: 600px;
+  background-color: $colorPrimary;
+  color: $colorGray5;
+  font-weight: bold;
+  position: fixed;
+  right: 0.9em;
+  bottom: 0.9em;
+  transform-origin: 100% 100%;
+  animation: new-item 0.2s ease-in; // Autoprefix
+  z-index: 101;
+}
+
+.new-item__tabs {
+  @include clearfix;
+}
+
+.new-item__tab {
+  display: block;
+  float: left;
+  line-height: 3em;
+  width: 50%;
+  text-align: center;
+  background-color: darken($colorPrimary, 10%);
+
+  &:hover,
+  &.is-selected {
+    color: $colorGray5;
+  }
+
+  &.is-selected {
+    background-color: transparent;
+  }
+}
+
+.new-item__body {
+  padding: 1em;
+}
+
+.new-item__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}

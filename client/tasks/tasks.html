@@ -1,0 +1,65 @@
+<template name="tasks">
+  <div class="columns">
+    <div class="column">
+      <header class="column__header">
+        <h4>To do</h4>
+      </header>
+      <div class="column__body">
+        {{#each todoTask}}
+          {{> task buttonLabel="Start"}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="column">
+      <header class="column__header">
+        <h4>Doing</h4>
+      </header>
+      <div class="column__body">
+        {{#each doingTask}}
+          {{> task buttonLabel="Finish"}}
+        {{/each}}
+        <!-- <strong class="null">No items</strong> -->
+      </div>
+    </div>
+    <div class="column">
+      <header class="column__header">
+        <h4>Done</h4>
+      </header>
+      <div class="column__body">
+        {{#each doneTask}}
+          {{> task buttonLabel="Accept"}}
+        {{/each}}
+        <!-- <strong class="null">No items</strong> -->
+      </div>
+    </div>
+    <div class="column">
+      <header class="column__header">
+        <h4>Accepted</h4>
+      </header>
+      <div class="column__body">
+        {{#each acceptedTask}}
+          {{> task buttonLabel="Reject"}}
+        {{/each}}
+        <!-- <strong class="null">No items</strong> -->
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="task">
+  <div class="task status_{{../status}}">
+    <div class="task__body">
+      <div class="task__status-bar"></div>
+      <code class="pull-right">{{../number}}</code>
+      <p class="task__title">
+        {{../title}}
+      </p>
+    </div>
+    <footer class="task__footer">
+      <div class="task__container">
+        <div class="block small"><span>AL</span></div>
+      </div>
+      <button class="task__action mtr_status-increment" id="{{../_id}}">{{buttonLabel}}</button>
+    </footer>
+  </div>
+</template>

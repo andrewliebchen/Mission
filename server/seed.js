@@ -8,7 +8,7 @@ function themeSeed(){
   return newTheme;
 }
 
-if (Meteor.isServer) {
+Meteor.startup(function() {
   Themes.remove({});
   Tasks.remove({});
 
@@ -71,4 +71,4 @@ if (Meteor.isServer) {
       parent:        themeId
     });
   }
-}
+});

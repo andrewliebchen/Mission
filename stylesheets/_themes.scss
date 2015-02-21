@@ -1,0 +1,200 @@
+
+
+// THEMES
+.theme {
+  @include clearfix;
+  cursor: pointer;
+  padding: 1em 0 1em;
+  position: relative;
+
+  &:hover {
+    color: $colorPrimary;
+  }
+}
+
+.theme__priority {
+  user-select: none;
+  border: 1px solid;
+  color: $colorGray2;
+  display: block;
+  float: left;
+  height: 3em;
+  margin: 0.5em 1em 0 0;
+  text-align: center;
+  width: 2em;
+
+  &:hover {
+    color: $colorPrimary;
+  }
+}
+
+.theme__priority__arrow {
+  display: block;
+  position: relative;
+  top: 2px;
+}
+
+.theme__priority__count {
+  font-size: 0.75em;
+  position: relative;
+  top: -4px;
+}
+
+.theme__body {
+  float: left;
+  max-width: 80%;
+  overflow: auto;
+}
+
+.theme__description {
+  color: $colorGray2;
+
+  .theme:hover & {
+    color: inherit;
+  }
+}
+
+.task-thumb {
+  float: right;
+}
+
+.task-thumb__column {
+  background-color: $colorGray4;
+  color: $colorGray3;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  width: 1em;
+
+  .theme:hover & {
+    background-color: $colorGray3;
+    color: $colorPrimary;
+  }
+}
+
+// THEME HEADER
+.theme-header {
+  background-color: white;
+  border-bottom: 1px solid $colorGray4;
+  position: relative;
+  padding-bottom: 1em;
+}
+
+.pagination__link {
+  $size: 3em;
+  position: absolute;
+  top: 50%;
+  width: $size;
+  height: $size;
+  color: $colorGray3;
+  line-height: $size;
+  margin-top: -($size / 2);
+  text-align: center;
+
+  &:hover {
+    background-color: $colorGray4;
+    color: $colorPrimary;
+  }
+
+  &.prev {
+    left: 1em;
+  }
+
+  &.next {
+    right: 1em;
+  }
+
+  &.menu {
+    left: 4em;
+  }
+}
+
+.tabs {
+  margin-bottom: -1px;
+}
+
+.tab {
+  border-bottom: 1px solid transparent;
+  color: $colorGray2;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 2em;
+  margin-right: 1em;
+
+  &:hover {
+    color: $colorPrimary;
+  }
+
+  &.is-selected {
+    color: $colorPrimary;
+    border-color: $colorPrimary;
+  }
+}
+
+// TOOLBAR
+.toolbar {
+  @include clearfix;
+  border-bottom: 1px solid $colorGray4;
+  line-height: 3em;
+  padding: 0 1em;
+}
+
+.boards-toggle {
+  font-weight: bold;
+  padding-right: 1em;
+}
+
+.toolbar__section {
+  float: left;
+  height: 4em;
+  padding: 0.45em 0.5em 0.5em 0;
+
+  ~ .toolbar__section {
+    // border-left: 2px solid $colorGray4;
+    padding-left: 0.5em;
+  }
+}
+
+.block {
+  $size: 3em;
+  border: 1px solid;
+  color: $colorGray2;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  height: $size;
+  line-height: $size;
+  min-width: $size;
+  text-align: center;
+
+  &:hover {
+    color: $colorPrimary;
+  }
+
+  &.small {
+    font-size: 0.75em;
+  }
+
+  &.medium {
+
+  }
+
+  &.large {
+    font-size: 1.25em;
+  }
+
+  ~ .block {
+    margin-left: 0.25em;
+  }
+}
+
+a.block {
+  color: $colorPrimary;
+}
+
+.search {
+  color: $colorGray2;
+  font-style: italic;
+  padding-left: 0.5em;
+  width: 33.33%;
+}

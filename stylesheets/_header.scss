@@ -1,0 +1,28 @@
+// HEADER
+.header {
+  background-color: white;
+  border-bottom: 1px solid $colorGray4;
+  height: 3em;
+  line-height: 3em;
+
+  a {
+    color: $colorGray3;
+
+    &:hover {
+      color: $colorPrimary;
+    }
+  }
+}
+
+.nav {
+  float: left;
+
+  a {
+    margin-right: 1em;
+  }
+}
+
+.user {
+  float: right;
+  font-weight: bold;
+}

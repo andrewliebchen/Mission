@@ -1,0 +1,70 @@
+<template name="themes">
+  {{#each theme}}
+    <div class="theme{{#if isActive}} is-active{{/if}}">
+      {{> themeContent}}
+    </div>
+  {{/each}}
+</template>
+
+<template name="themeContent">
+  <a class="theme__priority mtr_upvote">
+    <span class="theme__priority__arrow">▲</span>
+    <span class="theme__priority__count">{{priorityCount}}</span>
+  </a>
+  <span class="mtr_show-theme">
+    <div class="theme__body">
+      <h2 class="theme__title">{{title}}</h2>
+      <p class="theme__description">{{description}}</p>
+    </div>
+    {{> tasksThumb}}
+  </span>
+</template>
+
+<template name="theme">
+  <header class="theme-header">
+    <div class="container">
+      {{> themes}}
+      <!-- <nav class="tabs">
+        <a class="tab is-selected">Tasks</a>
+        <a class="tab">Notes</a>
+      </nav> -->
+    </div>
+    <div class="pagination">
+      <a class="pagination__link prev">❮</a>
+      <a href="/" class="pagination__link menu">☰</a>
+      <a class="pagination__link next">❯</a>
+    </div>
+    {{> addItem}}
+  </header>
+  <section class="tasks">
+    {{> toolbar}}
+    {{> tasks}}
+  </section>
+</template>
+
+<template name="toolbar">
+  <header class="toolbar">
+    <div class="toolbar__section">
+      <a class="boards-toggle">⧉ Current tasks</a>
+    </div>
+    <div class="toolbar__section">
+      <div class="block medium">AL</div>
+      <div class="block medium">CD</div>
+      <div class="block medium">PD</div>
+      <div class="block medium">TD</div>
+      <a class="block medium">+</a>
+    </div>
+    <div class="toolbar__section">
+      <div class="search">Search</div>
+    </div>
+  </header>
+</template>
+
+<template name="tasksThumb">
+  <div class="task-thumb">
+    <div class="task-thumb__column" style="height:40px;">4</div>
+    <div class="task-thumb__column" style="height:50px;">5</div>
+    <div class="task-thumb__column" style="height:30px;">3</div>
+    <div class="task-thumb__column" style="height:10px;">1</div>
+  </div>
+</template>

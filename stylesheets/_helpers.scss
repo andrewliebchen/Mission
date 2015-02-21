@@ -1,0 +1,60 @@
+// HELPERS
+@mixin ellipsis {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@mixin status($property) {
+  .status_0 & {
+    #{$property}: $colorStatusTodo;
+  }
+
+  .status_1 & {
+    #{$property}: $colorStatusDoing;
+  }
+
+  .status_2 & {
+    #{$property}: $colorStatusDone;
+  }
+
+  .status_3 & {
+    #{$property}: $colorStatusAccepted;
+  }
+}
+
+// ANIMATIONS need that autoprefixer!
+@keyframes new-item {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// RESET
+* {
+  appearance: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 0;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  text-decoration: none;
+  font-size: 1em;
+}

@@ -1,0 +1,96 @@
+// TASK COLUMNS
+.columns {
+  @include clearfix;
+  padding: 0.5em;
+}
+
+.column {
+  float: left;
+  padding: 0.5em;
+  width: 25%;
+}
+
+.column__header {
+  color: $colorGray2;
+  margin-bottom: 0.5em;
+}
+
+.column__body {
+  @include clearfix;
+  // background-color: $colorGray4;
+  // border: 1px solid $colorGray3;
+  // padding: 0.25em;
+
+  .null {
+    display: block;
+    padding: 1em 0;
+    text-align: center;
+  }
+}
+
+// TASKS
+.task {
+  background-color: white;
+  border: 1px solid $colorGray4;
+  line-height: 1.3;
+  position: relative;
+
+  ~ .task {
+    margin-top: 0.5em;
+  }
+
+  &.status_0 {
+    border-color: $colorStatusTodo;
+    color: $colorStatusTodo;
+  }
+
+  &.status_1 {
+    border-color: $colorStatusDoing;
+    color: $colorStatusDoing;
+  }
+
+  &.status_2 {
+    border-color: $colorStatusDone;
+    color: $colorStatusDone;
+  }
+
+  &.status_3 {
+    border-color: $colorStatusAccepted;
+    color: $colorStatusAccepted;
+  }
+}
+
+.task__status-bar {
+  height: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  // @include status(background-color);
+}
+
+.task__body {
+  padding: 0.5em;
+}
+
+.task__footer {
+  @include clearfix;
+  padding: 0.5em;
+}
+
+.task__container {
+  float: left;
+}
+
+.task__action {
+  @include status(color);
+  float: right;
+  font-weight: bold;
+
+  &:hover {
+    @include status(background-color);
+    color: white;
+    border-color: transparent;
+  }
+}

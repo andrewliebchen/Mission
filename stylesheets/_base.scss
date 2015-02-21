@@ -1,0 +1,109 @@
+// BASE
+html,
+body {
+  color: $colorGray1;
+  font-family: $fontFamilyBase;
+  font-size: $fontSizeBase;
+  line-height: 1.5;
+}
+
+html {
+  background-color: $colorGray5;
+  min-height: 100%;
+}
+
+a {
+  color: $colorPrimary;
+  cursor: pointer;
+}
+
+input[type="text"],
+textarea {
+  display: block;
+  background-color: darken($colorPrimary, 10%);
+  line-height: 1.5em;
+  padding: 0.5em 1em;
+  width: 100%;
+  margin: 0.25em 0 1em;
+  font-size: 1em;
+  color: $colorGray5;
+
+  &:focus {
+    background-color: $colorGray5;
+    color: $colorGray1;
+  }
+}
+
+textarea {
+  line-height: 1;
+  min-height: 4em;
+}
+
+::-webkit-input-placeholder {
+  color: $colorPrimary;
+}
+
+::-moz-placeholder {
+  color: $colorPrimary;
+}
+
+label {
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+button,
+input[type="submit"] {
+  border: 1px solid;
+  display: inline-block;
+  color: $colorGray5;
+  cursor: pointer;
+  line-height: 2em;
+  font-weight: bold;
+  padding: 0 1em;
+
+  &:hover {
+    background-color: $colorGray5;
+    color: $colorPrimary;
+    border-color: $colorGray5;
+  }
+}
+
+.null {
+  color: $colorGray3;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.container {
+  @include clearfix;
+  margin: 0 auto;
+  max-width: 75%;
+  position: relative;
+}
+
+.brand {
+  color: $colorPrimary !important;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+a.block.add-item {
+  $size: 3em;
+  position: fixed;
+  right: 0.75em;
+  bottom: 0.75em;
+  width: $size;
+  height: $size;
+  background-color: $colorPrimary;
+  border: 0;
+  color: white;
+  margin-right: 0;
+  z-index: 1;
+}

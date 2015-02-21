@@ -1,0 +1,38 @@
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission</title>
+</head>
+
+<template name="application">
+  <div class="wrapper">
+    {{> header}}
+    {{> yield}}
+    {{> newItem}}
+  </div>
+</template>
+
+<template name="loading">
+  Loading
+</template>
+
+<template name="home">
+  <section class="themes container">
+    {{> themes}}
+    {{> addItem}}
+  </section>
+</template>
+
+<template name="header">
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="brand"><strong>MISSION</strong></a>
+        <a href="/">Themes</a>
+        <a>Tasks</a>
+        <a>Teams</a>
+      </nav>
+      <a class="user">Andrew Liebchen</a>
+    </div>
+  </header>
+</template>
