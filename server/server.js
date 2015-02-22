@@ -1,6 +1,10 @@
 Meteor.methods({
-  upVote: function(themeId) {
-    Themes.update(themeId, {$inc: {priorityCount: 1}});
+  upVote: function(themeId, currentUserId) {
+    Themes.update(themeId, {$push: {priority: currentUserId}});
+  },
+
+  unUpVote: function(themeId, currentUserId) {
+    Themes.update(themeId, {$pull: {priority: currentUserId}});
   },
 
   statusIncrement: function(taskId) {
@@ -13,7 +17,7 @@ Meteor.methods({
       title:         newTheme.title,
       description:   newTheme.description,
       number:        itemCount,
-      priorityCount: 0
+      priorityCount: []
     });
   }
 });

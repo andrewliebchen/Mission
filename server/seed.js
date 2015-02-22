@@ -1,9 +1,9 @@
 function themeSeed() {
   return Themes.insert({
-    title:         'Themes and teams',
-    description:   'The app should focus on big product ideas and the groups of people that get those ideas done',
-    number:        1,
-    priorityCount: 0
+    title:       'Themes and teams',
+    description: 'The app should focus on big product ideas and the groups of people that get those ideas done',
+    number:      1,
+    priority:    []
   });
 }
 
