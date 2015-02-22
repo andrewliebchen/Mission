@@ -1,4 +1,11 @@
 <template name="tasks">
+  <section class="tasks">
+    {{> tasksToolbar}}
+    {{> tasksBoard}}
+  </section>
+</template>
+
+<template name="tasksBoard">
   <div class="columns">
     <div class="column">
       <header class="column__header">
@@ -44,6 +51,24 @@
       </div>
     </div>
   </div>
+</template>
+
+<template name="tasksToolbar">
+  <header class="toolbar">
+    <div class="toolbar__section">
+      <a class="boards-toggle">⧉ Current tasks</a>
+    </div>
+    <div class="toolbar__section">
+      <div class="block medium">AL</div>
+      <div class="block medium">CD</div>
+      <div class="block medium">PD</div>
+      <div class="block medium">TD</div>
+      <a class="block medium">+</a>
+    </div>
+    <div class="toolbar__section">
+      <div class="search">Search</div>
+    </div>
+  </header>
 </template>
 
 <template name="task">

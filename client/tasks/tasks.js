@@ -1,4 +1,4 @@
-Template.tasks.helpers({
+Template.tasksBoard.helpers({
   todoTask: function() {
     return Tasks.find({status: 0}, {sort: {number: 1}});
   },

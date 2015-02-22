@@ -17,23 +17,23 @@
   Loading
 </template>
 
-<template name="home">
-  <section class="themes container">
-    {{> themes}}
-    {{> addItem}}
-  </section>
-</template>
-
 <template name="header">
   <header class="header">
     <div class="container">
       <nav class="nav">
         <a href="/" class="brand"><strong>MISSION</strong></a>
         <a href="/">Themes</a>
-        <a>Tasks</a>
+        <a href="{{pathFor route='tasks'}}">Tasks</a>
         <a>Teams</a>
       </nav>
       <a class="user">Andrew Liebchen</a>
     </div>
   </header>
+</template>
+
+<template name="home">
+  <section class="themes container">
+    {{> themes}}
+    {{> addItem}}
+  </section>
 </template>

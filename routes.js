@@ -16,11 +16,11 @@ Router.map(function() {
   });
 
   this.route('theme', {
-    path: '/theme/:_id',
+    path: '/themes/:_id',
     waitOn: function() {
       return [
         Meteor.subscribe('theme', this.params._id),
-        Meteor.subscribe('tasks', this.params._id)
+        Meteor.subscribe('themeTasks', this.params._id)
       ];
     },
     data: function() {
@@ -30,6 +30,17 @@ Router.map(function() {
     },
     onStop: function() {
       // Session.set('currentTheme', null);
+    }
+  });
+
+  this.route('tasks', {
+    path: '/tasks/',
+    waitOn: function() {
+      return Meteor.subscribe('tasks');
+    },
+    data: function() {
+      Session.set('newItemType', 'task');
+      return Tasks.find({});
     }
   });
 });
