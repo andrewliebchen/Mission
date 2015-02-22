@@ -1,3 +1,38 @@
+// TOOLBAR
+.toolbar {
+  @include clearfix;
+  border-bottom: 1px solid $colorGray4;
+  line-height: 3em;
+  padding: 0 1em;
+}
+
+.boards-toggle {
+  font-weight: bold;
+  padding-right: 1em;
+}
+
+.toolbar__section {
+  @include clearfix;
+  float: left;
+  height: 4em;
+  padding: 0.45em 0.5em 0.5em 0;
+
+  ~ .toolbar__section {
+    padding-left: 0.5em;
+  }
+
+  .block {
+    float: left;
+  }
+}
+
+.search {
+  color: $colorGray2;
+  font-style: italic;
+  padding-left: 0.5em;
+  width: 33.33%;
+}
+
 // TASK COLUMNS
 .columns {
   @include clearfix;
@@ -17,9 +52,6 @@
 
 .column__body {
   @include clearfix;
-  // background-color: $colorGray4;
-  // border: 1px solid $colorGray3;
-  // padding: 0.25em;
 
   .null {
     display: block;

@@ -16,6 +16,20 @@ Template.tasksBoard.helpers({
   }
 });
 
+Template.tasksToolbar.helpers({
+  boardUser: function() {
+    var tasks = Tasks.find({}).fetch();
+    var distinctArray = _.uniq(tasks, false, function(task) {
+      return task.assignedTo;
+    });
+    var distinctValue = _.pluck(distinctArray, 'assignedTo');
+
+    return _.map(distinctValue, function(assignedTo) {
+      return Meteor.users.findOne({_id: assignedTo}).profile.avatar_url;
+    });
+  }
+});
+
 Template.task.helpers({
   avatarUrl: function() {
     var assignedTo = this.assignedTo;

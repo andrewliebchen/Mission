@@ -59,10 +59,9 @@
       <a class="boards-toggle">⧉ Current tasks</a>
     </div>
     <div class="toolbar__section">
-      <div class="block medium">AL</div>
-      <div class="block medium">CD</div>
-      <div class="block medium">PD</div>
-      <div class="block medium">TD</div>
+      {{#each boardUser}}
+        <div class="block medium"><img src="{{this}}"></div>
+      {{/each}}
       <a class="block medium">+</a>
     </div>
     <div class="toolbar__section">
