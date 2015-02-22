@@ -16,8 +16,15 @@ Template.tasksBoard.helpers({
   }
 });
 
+Template.task.helpers({
+  avatarUrl: function() {
+    var assignedTo = this.assignedTo;
+    return Meteor.users.findOne({_id: assignedTo}).profile.avatar_url;
+  }
+});
+
 Template.task.events({
   'click .mtr_status-increment': function(event) {
-    Meteor.call('statusIncrement', event.currentTarget.id);
+    Meteor.call('statusIncrement', this.taskId);
   }
 });

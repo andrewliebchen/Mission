@@ -26,7 +26,13 @@
         <a href="{{pathFor route='tasks'}}">Tasks</a>
         <a>Teams</a>
       </nav>
-      <a class="user">Andrew Liebchen</a>
+      <div class="user">
+        {{#if currentUser}}
+          Andrew Liebchen
+        {{else}}
+          {{>loginButtons}}
+        {{/if}}
+      </div>
     </div>
   </header>
 </template>

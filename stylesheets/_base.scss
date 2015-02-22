@@ -94,6 +94,48 @@ input[type="submit"] {
   text-transform: uppercase;
 }
 
+.block {
+  $size: 3em;
+  border: 1px solid;
+  color: $colorGray2;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  height: $size;
+  line-height: $size;
+  min-width: $size;
+  text-align: center;
+
+  &:hover {
+    color: $colorPrimary;
+  }
+
+  &.small {
+    font-size: 0.75em;
+  }
+
+  &.medium {
+
+  }
+
+  &.large {
+    font-size: 1.25em;
+  }
+
+  ~ .block {
+    margin-left: 0.25em;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+a.block {
+  color: $colorPrimary;
+}
+
 a.block.add-item {
   $size: 3em;
   position: fixed;

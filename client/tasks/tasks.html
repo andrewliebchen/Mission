@@ -13,7 +13,7 @@
       </header>
       <div class="column__body">
         {{#each todoTask}}
-          {{> task buttonLabel="Start"}}
+          {{> task buttonLabel="Start" taskId=_id assignedTo=assignedTo}}
         {{/each}}
       </div>
     </div>
@@ -23,7 +23,7 @@
       </header>
       <div class="column__body">
         {{#each doingTask}}
-          {{> task buttonLabel="Finish"}}
+          {{> task buttonLabel="Finish" taskId=_id assignedTo=assignedTo}}
         {{/each}}
         <!-- <strong class="null">No items</strong> -->
       </div>
@@ -34,7 +34,7 @@
       </header>
       <div class="column__body">
         {{#each doneTask}}
-          {{> task buttonLabel="Accept"}}
+          {{> task buttonLabel="Accept" taskId=_id assignedTo=assignedTo}}
         {{/each}}
         <!-- <strong class="null">No items</strong> -->
       </div>
@@ -45,7 +45,7 @@
       </header>
       <div class="column__body">
         {{#each acceptedTask}}
-          {{> task buttonLabel="Reject"}}
+          {{> task buttonLabel="Reject" taskId=_id assignedTo=assignedTo}}
         {{/each}}
         <!-- <strong class="null">No items</strong> -->
       </div>
@@ -82,9 +82,9 @@
     </div>
     <footer class="task__footer">
       <div class="task__container">
-        <div class="block small"><span>AL</span></div>
+        <div class="block small"><img src="{{avatarUrl}}"></div>
       </div>
-      <button class="task__action mtr_status-increment" id="{{../_id}}">{{buttonLabel}}</button>
+      <button class="task__action mtr_status-increment">{{buttonLabel}}</button>
     </footer>
   </div>
 </template>

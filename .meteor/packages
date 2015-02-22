@@ -8,3 +8,5 @@ insecure
 fourseven:scss
 iron:router
 jquery
+accounts-github
+accounts-ui-unstyled

@@ -155,43 +155,6 @@
   }
 }
 
-.block {
-  $size: 3em;
-  border: 1px solid;
-  color: $colorGray2;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: bold;
-  height: $size;
-  line-height: $size;
-  min-width: $size;
-  text-align: center;
-
-  &:hover {
-    color: $colorPrimary;
-  }
-
-  &.small {
-    font-size: 0.75em;
-  }
-
-  &.medium {
-
-  }
-
-  &.large {
-    font-size: 1.25em;
-  }
-
-  ~ .block {
-    margin-left: 0.25em;
-  }
-}
-
-a.block {
-  color: $colorPrimary;
-}
-
 .search {
   color: $colorGray2;
   font-style: italic;
