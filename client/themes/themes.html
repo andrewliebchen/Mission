@@ -24,21 +24,18 @@
   <header class="theme-header">
     <div class="container">
       {{> themes}}
-      <!-- <nav class="tabs">
-        <a class="tab is-selected">Tasks</a>
-        <a class="tab">Notes</a>
-      </nav> -->
+      <nav class="tabs">
+        <a class="tab is-selected" data-tab="tasks">Tasks</a>
+        <a class="tab" data-tab="notes">Notes</a>
+      </nav>
     </div>
     <div class="pagination">
       <a class="pagination__link prev">❮</a>
-      <a href="/" class="pagination__link menu">☰</a>
       <a class="pagination__link next">❯</a>
     </div>
     {{> addItem}}
   </header>
-  <section class="tasks">
-    {{> tasks}}
-  </section>
+  {{> tabPanes}}
 </template>
 
 <template name="tasksThumb">

@@ -77,7 +77,6 @@
   background-color: white;
   border-bottom: 1px solid $colorGray4;
   position: relative;
-  padding-bottom: 1em;
 }
 
 .pagination__link {
@@ -102,31 +101,5 @@
 
   &.next {
     right: 1em;
-  }
-
-  &.menu {
-    left: 4em;
-  }
-}
-
-.tabs {
-  margin-bottom: -1px;
-}
-
-.tab {
-  border-bottom: 1px solid transparent;
-  color: $colorGray2;
-  display: inline-block;
-  font-weight: bold;
-  line-height: 2em;
-  margin-right: 1em;
-
-  &:hover {
-    color: $colorPrimary;
-  }
-
-  &.is-selected {
-    color: $colorPrimary;
-    border-color: $colorPrimary;
   }
 }

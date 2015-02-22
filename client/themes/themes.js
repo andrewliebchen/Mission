@@ -1,3 +1,5 @@
+Session.set('activeTab', 'tasks');
+
 Template.themes.helpers({
   theme: function(){
     return Themes.find({}, {sort:{priorityCount: -1}});
