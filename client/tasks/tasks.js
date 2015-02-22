@@ -1,3 +1,5 @@
+Session.setDefault('tasksFilter', null);
+
 Template.tasksBoard.helpers({
   todoTask: function() {
     return Tasks.find({status: 0}, {sort: {number: 1}});
@@ -19,21 +21,38 @@ Template.tasksBoard.helpers({
 Template.tasksToolbar.helpers({
   boardUser: function() {
     var tasks = Tasks.find({}).fetch();
-    var distinctArray = _.uniq(tasks, false, function(task) {
+    var assignedToArray = _.uniq(tasks, false, function(task) {
       return task.assignedTo;
     });
-    var distinctValue = _.pluck(distinctArray, 'assignedTo');
-
-    return _.map(distinctValue, function(assignedTo) {
-      return Meteor.users.findOne({_id: assignedTo}).profile.avatar_url;
+    var distinctAssignedTo = _.pluck(assignedToArray, 'assignedTo');
+    return _.map(distinctAssignedTo, function(assignedTo) {
+      return assignedTo ? Meteor.users.findOne({_id: assignedTo}) : null;
     });
+  },
+
+  isSelected: function() {
+    return Session.equals('tasksFilter', this._id);
   }
 });
 
 Template.task.helpers({
+  isNotFiltered: function() {
+    return Session.equals('tasksFilter', this.assignedTo) || Session.equals('tasksFilter', null);
+  },
+
   avatarUrl: function() {
     var assignedTo = this.assignedTo;
     return Meteor.users.findOne({_id: assignedTo}).profile.avatar_url;
+  }
+});
+
+Template.tasksToolbar.events({
+  'click .mtr_filter-board-users': function() {
+    if(Session.get('tasksFilter') === this._id) {
+      Session.set('tasksFilter', null);
+    } else {
+      Session.set('tasksFilter', this._id);
+    }
   }
 });
 

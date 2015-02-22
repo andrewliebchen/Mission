@@ -21,7 +21,7 @@ Meteor.startup(function() {
       number:      2,
       status:      0,
       parent:      themeId,
-      assignedTo:  userId
+      assignedTo:  false
     });
 
     Tasks.insert({
@@ -30,7 +30,7 @@ Meteor.startup(function() {
       number:      3,
       status:      0,
       parent:      themeId,
-      assignedTo:  userId
+      assignedTo:  false
     });
 
     Tasks.insert({

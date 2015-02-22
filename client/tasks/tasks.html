@@ -60,7 +60,11 @@
     </div>
     <div class="toolbar__section">
       {{#each boardUser}}
-        <div class="block medium"><img src="{{this}}"></div>
+        {{#if this}}
+          <div class="block medium mtr_filter-board-users{{#if isSelected}} is-selected{{/if}}">
+            <img src="{{this.profile.avatar_url}}">
+          </div>
+        {{/if}}
       {{/each}}
       <a class="block medium">+</a>
     </div>
@@ -71,19 +75,21 @@
 </template>
 
 <template name="task">
-  <div class="task status_{{../status}}">
-    <div class="task__body">
-      <div class="task__status-bar"></div>
-      <code class="pull-right">{{../number}}</code>
-      <p class="task__title">
-        {{../title}}
-      </p>
-    </div>
-    <footer class="task__footer">
-      <div class="task__container">
-        <div class="block small"><img src="{{avatarUrl}}"></div>
+  {{#if isNotFiltered}}
+    <div class="task status_{{../status}}" data-assigned="{{../assignedTo}}">
+      <div class="task__body">
+        <div class="task__status-bar"></div>
+        <code class="pull-right">{{../number}}</code>
+        <p class="task__title">
+          {{../title}}
+        </p>
       </div>
-      <button class="task__action mtr_status-increment">{{buttonLabel}}</button>
-    </footer>
-  </div>
+      <footer class="task__footer">
+        <div class="task__container">
+          <div class="block small"><img src="{{avatarUrl}}"></div>
+        </div>
+        <button class="task__action mtr_status-increment">{{buttonLabel}}</button>
+      </footer>
+    </div>
+  {{/if}}
 </template>
