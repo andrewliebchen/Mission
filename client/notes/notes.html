@@ -26,9 +26,7 @@
   </header>
   <div class="note container">
     {{#if editing}}
-      <textarea id="mtr_note-editor" class="note__editor">
-        {{content}}
-      </textarea>
+      <textarea id="mtr_note-editor" class="note__editor">{{content}}</textarea>
     {{else}}
       {{#markdown}}{{content}}{{/markdown}}
     {{/if}}
