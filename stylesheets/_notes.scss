@@ -1,0 +1,20 @@
+.note {
+  padding: 1em 0;
+}
+
+.note__editor {
+  font-family: "source code pro", monospace;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  height: 100vh; // Will need to figure this out
+  line-height: 1.5;
+  resize: none;
+  white-space: pre-wrap;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}

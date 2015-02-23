@@ -1,3 +1,3 @@
-Themes    = new Meteor.Collection('themes');
-Tasks     = new Meteor.Collection('tasks');
-Documents = new Meteor.Collection('documents');
+Themes = new Meteor.Collection('themes');
+Tasks  = new Meteor.Collection('tasks');
+Notes  = new Meteor.Collection('notes');

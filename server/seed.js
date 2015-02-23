@@ -10,9 +10,10 @@ function themeSeed() {
 Meteor.startup(function() {
   Themes.remove({});
   Tasks.remove({});
+  Notes.remove({});
 
   var themeId = themeSeed();
-  var userId = "ZdhAMayCAhSMZ2Yr6";
+  var userId = "ZdhAMayCAhSMZ2Yr6"; // Current user ID, don't hate because I'm stupid.
 
   if(Tasks.find().count() === 0) {
     Tasks.insert({
@@ -21,7 +22,9 @@ Meteor.startup(function() {
       number:      2,
       status:      0,
       parent:      themeId,
-      assignedTo:  false
+      assignedTo:  false,
+      createdBy:   userId,
+      createdAt:   Date.now()
     });
 
     Tasks.insert({
@@ -30,7 +33,9 @@ Meteor.startup(function() {
       number:      3,
       status:      0,
       parent:      themeId,
-      assignedTo:  false
+      assignedTo:  false,
+      createdBy:   userId,
+      createdAt:   Date.now()
     });
 
     Tasks.insert({
@@ -39,7 +44,9 @@ Meteor.startup(function() {
       number:      4,
       status:      0,
       parent:      themeId,
-      assignedTo:  userId
+      assignedTo:  userId,
+      createdBy:   userId,
+      createdAt:   Date.now()
     });
 
     Tasks.insert({
@@ -48,7 +55,9 @@ Meteor.startup(function() {
       number:      5,
       status:      1,
       parent:      themeId,
-      assignedTo:  userId
+      assignedTo:  userId,
+      createdBy:   userId,
+      createdAt:   Date.now()
     });
 
     Tasks.insert({
@@ -57,7 +66,9 @@ Meteor.startup(function() {
       number:      6,
       status:      1,
       parent:      themeId,
-      assignedTo:  userId
+      assignedTo:  userId,
+      createdBy:   userId,
+      createdAt:   Date.now()
     });
 
     Tasks.insert({
@@ -66,7 +77,9 @@ Meteor.startup(function() {
       number:      7,
       status:      2,
       parent:      themeId,
-      assignedTo:  userId
+      assignedTo:  userId,
+      createdBy:   userId,
+      createdAt:   Date.now()
     });
 
     Tasks.insert({
@@ -75,7 +88,18 @@ Meteor.startup(function() {
       number:      8,
       status:      3,
       parent:      themeId,
-      assignedTo:  userId
+      assignedTo:  userId,
+      createdBy:   userId,
+      createdAt:   Date.now()
+    });
+  }
+
+  if(Notes.find().count() === 0) {
+    Notes.insert({
+      parent:      themeId,
+      createdBy:   userId,
+      createdAt:   Date.now(),
+      content:     'Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet.'
     });
   }
 });

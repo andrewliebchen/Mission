@@ -7,10 +7,6 @@ Meteor.methods({
     Themes.update(themeId, {$pull: {priority: currentUserId}});
   },
 
-  statusIncrement: function(taskId) {
-    Tasks.update(taskId, {$inc: {status: 1}});
-  },
-
   newTheme: function(newTheme) {
     var itemCount = (Themes.find({}).count()) + (Tasks.find({}).count());
     Themes.insert({
@@ -19,6 +15,17 @@ Meteor.methods({
       number:        itemCount,
       priorityCount: []
     });
+  },
+
+  statusIncrement: function(taskId) {
+    Tasks.update(taskId, {$inc: {status: 1}});
+  },
+
+  updateNoteContent: function(noteId, args) {
+    Notes.update(noteId, {$set: {
+      content: args.content,
+      updatedAt: args.updatedAt
+    }});
   }
 });
 

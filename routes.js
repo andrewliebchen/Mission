@@ -20,16 +20,13 @@ Router.map(function() {
     waitOn: function() {
       return [
         Meteor.subscribe('theme', this.params._id),
-        Meteor.subscribe('themeTasks', this.params._id)
+        Meteor.subscribe('themeTasks', this.params._id),
+        Meteor.subscribe('themeNotes', this.params._id)
       ];
     },
     data: function() {
-      // Session.set('currentTheme', this.params._id);
       Session.set('newItemType', 'task');
       return Themes.findOne(this.params._id);
-    },
-    onStop: function() {
-      // Session.set('currentTheme', null);
     }
   });
 

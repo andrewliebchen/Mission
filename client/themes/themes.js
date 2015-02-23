@@ -1,4 +1,4 @@
-Session.set('activeTab', 'tasks');
+Session.set('activeTab', 'notes');
 
 Template.themes.helpers({
   theme: function(){

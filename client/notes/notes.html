@@ -1,5 +1,36 @@
 <template name="notes">
   <div class="notes">
-    Notes
+    {{#each note}}
+      {{>noteContent}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="noteContent">
+  <header class="toolbar">
+    <div class="toolbar__section">
+      <a class="notes__menu">Note name</a>
+    </div>
+    <div class="toolbar__section">
+      <div class="search">Search</div>
+    </div>
+    <div class="toolbar__section">
+      <a class="notes__editing-toggle mtr_notes-editing-toggle">
+        {{#if editing}}
+          Done
+        {{else}}
+          Edit
+        {{/if}}
+      </a>
+    </div>
+  </header>
+  <div class="note container">
+    {{#if editing}}
+      <textarea id="mtr_note-editor" class="note__editor">
+        {{content}}
+      </textarea>
+    {{else}}
+      {{#markdown}}{{content}}{{/markdown}}
+    {{/if}}
   </div>
 </template>
